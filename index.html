@@ -1,6 +1,5 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
-
 
 <head>
     <meta charset="UTF-8">
@@ -8,7 +7,7 @@
     <title>FluidoPED</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom styles for child-friendly touches and specific colors */
+        /* Estilos personalizados para toques infantiles y colores específicos */
         body {
             font-family: 'Arial', sans-serif;
             background-color: #e0f7fa;
@@ -16,48 +15,67 @@
             padding: 20px;
         }
 
-
         .container {
             max-width: 900px;
             margin: 0 auto;
             background-color: #ffffff;
             padding: 30px;
-            border-radius: 15px;
+            border-radius: 20px; /* Borde suavizado */
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
         }
 
-
         h1.main-title {
-            color: #0077cc;
             text-align: center;
             font-weight: bold;
-            font-size: 50px;
+            font-size: 47px;
             margin-bottom: 25px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
+        .title-part-1 {
+            color: #0077cc; /* Azul principal */
+        }
+
+        .title-part-2 {
+            color: #4A5568; /* Gris oscuro neutro */
+        }
 
         .logo-svg {
-            width: 30px;
-            height: 45px;
+            width: 28.2px;
+            height: 42.3px;
             margin-right: 12px;
             vertical-align: middle;
         }
 
+        .subtitle-text {
+            text-align: center; 
+            margin-bottom: 30px; 
+            color: #0077cc; 
+            font-size: 1.1em;
+        }
 
-        .section-title, .styled-h3 {
+        .section-title {
             color: #0077cc;
             text-align: center;
             font-weight: bold;
-            font-size: 22px;
+            font-size: 23px; /* Tamaño de fuente aumentado */
             margin-bottom: 25px;
+            border-bottom: 1px solid #d1d5db; /* Encabezado prominente */
+            padding-bottom: 12px; /* Espacio para el borde */
         }
-        #gorelick-section h3.styled-h3 {
+        
+        .styled-h3, #gorelick-section-clasica h3.styled-h3, #gorelick-section-rapida h3.styled-h3 {
              text-align: left;
-             margin-top: 20px;
+             margin-top: 0;
+             margin-bottom: 1rem;
+             padding-bottom: 0;
+             font-size: 22px; /* Mantener tamaño para subtítulos */
+             color: #2c5282;
+             font-weight: bold;
         }
+        
         .consideraciones-previas-title {
             font-weight: bold;
             color: #005662;
@@ -65,17 +83,14 @@
             margin-bottom: 12px;
             text-align:left;
         }
-        .consideraciones-previas-text { 
-            font-size: 0.9em;
-            color: #01579b;
-            margin-bottom: 8px;
-        }
+        
         .consideraciones-previas-container {
-            background-color: #e3f2fd;
-            border-left: 4px solid #1976d2;
+            background-color: #fffbeb; /* Color ámbar de advertencia */
+            border-left: 4px solid #fdba74; /* Color ámbar de advertencia */
             padding: 12px 15px;
-            border-radius: 6px;
+            border-radius: 8px;
             margin-bottom: 20px;
+            font-family: 'Arial', sans-serif;
         }
         .consideraciones-previas-container ul {
             list-style-type: disc; 
@@ -85,8 +100,12 @@
         .consideraciones-previas-container li {
             margin-bottom: 10px; 
             font-size: 0.9em;
-            color: #01579b;
+            color: #422006; /* Texto más oscuro para contraste en fondo ámbar */
             line-height: 1.4; 
+        }
+        .consideraciones-previas-container code {
+            font-family: 'Arial', sans-serif;
+            letter-spacing: normal;
         }
         .consideraciones-previas-container ul ul {
             list-style-type: circle; 
@@ -94,68 +113,66 @@
             margin-top: 8px;
         }
          .consideraciones-previas-container li strong {
-            color: #005662; 
+            color: #92400e; 
          }
-
-
+        .consideraciones-previas-container .sueros-table th {
+            color: white; /* Color de fuente blanco para cabecera de tabla de sodio */
+        }
+        .consideraciones-previas-container .sueros-table td {
+             color: #004d40; /* Color de fuente original para celdas */
+        }
 
 
         .section {
-            background-color: #e1f5fe;
+            background-color: #f0f9ff; /* Celeste muy claro */
             padding: 25px;
-            border-radius: 10px;
+            border-radius: 15px; /* Borde suavizado */
             margin-bottom: 30px;
-            border: 1px solid #b3e5fc;
+            border: 1px solid #e0f2fe;
         }
-
 
         .input-group {
             margin-bottom: 20px;
         }
 
-
-        .input-group label { /* General label styling for titles like "Peso (kg):" */
+        .input-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: bold; 
             color: #005662;
         }
         
-        /* Specific styling for labels of radio buttons and checkboxes */
         .input-group .radio-group label, 
         .gorelick-item label {
-            font-weight: normal; /* Default for option text */
-            color: #005662; /* Default color for option text */
+            font-weight: normal; 
+            color: #005662;
             transition: font-weight 0.2s ease, color 0.2s ease, font-size 0.2s ease; 
-            margin-right: 25px; /* Increased spacing for radio group items */
+            margin-right: 25px; 
             padding: 2px 0; 
-            line-height: 1.8; /* Adjusted for potential font size change and vertical spacing */
+            line-height: 1.8;
             display: inline-flex; 
             align-items: center; 
-            font-size: 1em; /* Base font size for options */
+            font-size: 1em;
         }
         .gorelick-item label {
             margin-right: 10px; 
         }
 
-
         .input-group .radio-group label.selected-option-text,
         .gorelick-item label.selected-option-text {
             font-weight: bold !important;
-            color: #005A9C !important;   /* Brighter Navy Blue */
-            font-size: 1.08em; /* Increase font size slightly */
+            color: #005A9C !important;
+            font-size: 1.08em;
             background-color: transparent !important; 
             text-shadow: none !important; 
         }
-
-
 
 
         .custom-input-select {
             width: 100%;
             padding: 12px 15px;
             border: 1px solid #b0bec5;
-            border-radius: 8px;
+            border-radius: 10px; /* Borde suavizado */
             background-color: white;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
             font-size: 1rem;
@@ -180,16 +197,14 @@
         }
 
 
-
-
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background-image: linear-gradient(to bottom, #0088dd, #0066cc);
+            background-color: #0077cc; /* Botón refinado - color sólido */
             color: white;
             padding: 12px 24px;
-            border-radius: 8px;
+            border-radius: 10px; /* Borde suavizado */
             text-align: center;
             cursor: pointer;
             transition: all 0.2s ease-in-out;
@@ -202,42 +217,63 @@
             margin-right: 8px;
         }
 
-
         .btn:hover {
-            background-image: linear-gradient(to bottom, #0077cc, #005fa3);
+            background-color: #006ab7; /* Botón refinado - hover */
             box-shadow: 0 4px 8px rgba(0,0,0,0.2), 0 2px 4px rgba(0,0,0,0.15);
             transform: translateY(-1px);
         }
         .btn:active {
+            background-color: #005a9c; /* Botón refinado - active */
             transform: translateY(0px);
             box-shadow: 0 1px 2px rgba(0,0,0,0.15);
         }
 
-
-
-
+        /* Transición suave para los cuadros de resultados */
         .result {
             margin-top: 20px;
-            padding: 15px;
-            background-color: #b3e5fc;
-            border-radius: 8px;
-            border: 1px dashed #0288d1;
+            background-color: #E0F2F1;
+            border-radius: 12px;
+            border: 1px dashed #4DB6AC;
+            padding: 0 15px;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, opacity 0.5s ease-out, padding 0.5s ease-out;
         }
-
+        .result.show {
+            padding: 15px;
+            max-height: 1000px;
+            opacity: 1;
+        }
+        
+        .collapsible-container {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.4s ease-out;
+            margin-top: 20px;
+        }
+        .collapsible-container.show {
+             grid-template-rows: 1fr;
+        }
+        .collapsible-container > div {
+            overflow: hidden;
+        }
+        .table-wrapper {
+             overflow-x: auto;
+        }
 
         .result strong {
             color: #004d40;
         }
 
-
         .tabs {
             display: flex;
             flex-wrap: wrap;
+            justify-content: center; /* Centrar pestañas */
             margin-bottom: 20px;
             border-bottom: 2px solid #b3e5fc;
             gap: 5px;
         }
-
 
         .tab-button {
             padding: 10px 15px;
@@ -245,9 +281,10 @@
             border: none;
             background-color: transparent;
             border-bottom: 3px solid transparent;
-            transition: border-bottom-color 0.3s ease, color 0.3s ease;
+            transition: all 0.3s ease;
             font-weight: bold;
-            color: #0077cc;
+            color: black; /* Color base no seleccionado */
+            font-size: 17px; /* Tamaño base */
             margin-right: 0;
             display: inline-flex; 
             align-items: center; 
@@ -256,12 +293,11 @@
              margin-right: 5px;
         }
 
-
         .tab-button.active {
-            border-bottom-color: #0077cc;
-            color: #004d40;
+            border-bottom-color: #0077cc; /* Azul del título */
+            color: #0077cc; /* Azul del título */
+            font-size: 20px; /* Tamaño aumentado */
         }
-
 
         .tab-button.disabled {
             opacity: 0.5;
@@ -269,17 +305,14 @@
             pointer-events: none;
         }
 
-
         .tab-content {
             display: none;
             padding-top: 15px;
         }
 
-
         .tab-content.active {
             display: block;
         }
-
 
         .radio-group {
             display: flex;
@@ -287,38 +320,35 @@
             align-items: center; 
         }
 
-
         .radio-group input[type="radio"] {
             margin-right: 5px;
             margin-bottom: 0; 
         }
-
 
         .icon { 
             vertical-align: middle;
             margin-right: 8px; 
         }
 
-
         .volume-option {
             display: inline-flex; 
             align-items: center; 
-            justify-content: center; /* Center text inside */
-            padding: 10px 25px; /* Increased horizontal padding */
+            justify-content: center; 
+            padding: 12px 28px; 
             border: 1px solid #0077cc;
-            border-radius: 20px; /* More rounded for pill shape */
+            border-radius: 25px; /* Borde suavizado */
             margin-right: 15px; 
-            margin-bottom: 5px;
+            margin-bottom: 10px; 
             cursor: pointer;
             background-color: #e1f5fe;
             transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, font-weight 0.2s ease, color 0.2s ease;
             box-shadow: 0 1px 2px rgba(0,0,0,0.1);
             color: #005662; 
-            line-height: 1.2; /* Adjusted line-height */
-            min-width: 90px; /* Ensure a minimum width */
+            line-height: 1.2; 
+            font-size: 1.1em;
+            min-width: 120px; 
             text-align: center;
         }
-
 
         .volume-option.selected {
             background-color: #0077cc;
@@ -330,58 +360,41 @@
         }
 
 
-
-
         .volume-option input[type="radio"] {
             display: none;
         }
-
 
         .inline-input {
             display: inline-block;
             width: auto;
             margin-left: 10px;
         }
-
-
-        .btn-final-regimen {
-            padding: 15px 30px; 
-            border-radius: 25px; 
-            font-weight: 500; 
-            font-size: 1.1em; 
-        }
-         .btn-final-regimen .emoji-icon { 
-            margin-right: 8px; 
-        }
-
-
-        .final-regimen-container { 
+        
+        #pauta-final-copy-container { 
             text-align: center;
             margin-top: 20px; 
         }
-        #pauta-final-nota {
-            text-align: left; 
-            margin-top: 10px;
-            margin-bottom: 10px; 
-            padding-left: 15px; 
-            font-size: 0.9em;
-            color: #005662; 
-        }
-
 
         .nota-text {
              font-size: 0.9em;
-             color: #01579b;
+             color: #422006; /* Texto más oscuro para contraste en fondo ámbar */
              margin-top: 15px;
              margin-bottom: 10px;
              display: block;
-             background-color: #e3f2fd;
-             border-left: 4px solid #1976d2;
+             background-color: #fffbeb; /* Color ámbar de advertencia */
+             border-left: 4px solid #fdba74; /* Color ámbar de advertencia */
              padding: 12px 15px;
-             border-radius: 6px;
+             border-radius: 8px;
+        }
+        .nota-text strong {
+            color: #422006;
+            font-weight: bold;
+        }
+        .nota-text strong.negro {
+            color: black;
         }
         .gorelick-item input[type="checkbox"] {
-            margin-right: 10px; /* Increased spacing for Gorelick checkboxes */
+            margin-right: 10px;
             transform: scale(1.1);
         }
         .disclaimer-text {
@@ -397,7 +410,6 @@
             text-align: center;
         }
         .sueros-table-container {
-            overflow-x: auto;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,119,204,0.1);
             border: 1px solid #90cdf4;
@@ -439,9 +451,68 @@
         .sueros-table tbody tr:last-child td:last-child {
             border-bottom-right-radius: 7px;
         }
+
+        #copy-toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #28a745; /* Paleta - Verde de éxito */
+            color: white;
+            padding: 12px 20px;
+            border-radius: 30px; /* Borde suavizado */
+            z-index: 1000;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.5s linear;
+        }
+
+        #copy-toast.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        #deficit-warning-modal, #potassium-warning-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2000;
+            background-color: #f44336; /* Rojo de alerta */
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            display: none; /* Oculto por defecto */
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        #deficit-warning-modal p, #potassium-warning-modal p {
+            margin: 0;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+        #deficit-warning-modal button, #potassium-warning-modal button {
+            background-color: white;
+            color: #d32f2f;
+            border: 2px solid #d32f2f;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+        #deficit-warning-modal button:hover, #potassium-warning-modal button:hover {
+            background-color: #ffeeee;
+        }
+
     </style>
 </head>
-
 
 <body>
     <div class="container">
@@ -451,18 +522,22 @@
                 <path d="M10 2.5C5.85786 2.5 2.5 5.85786 2.5 10C2.5 16.9355 5.9375 24.9688 10 31.0625C14.0625 24.9688 17.5 16.9355 17.5 10C17.5 5.85786 14.1421 2.5 10 2.5Z" fill="#4FC3F7" fill-opacity="0.7" transform="rotate(180 10 15)"/>
                 <ellipse cx="10" cy="19" rx="2" ry="3" fill="white" fill-opacity="0.6" transform="rotate(180 10 19)"/>
             </svg>
-            FluidoPED
+            <span class="title-part-1">Fluido</span><span class="title-part-2">PED</span>
         </h1>
-        <p style="text-align: center; margin-bottom: 30px; color: #0077cc; font-size: 1.1em;">Herramienta para el cálculo de fluidoterapia intravenosa en pacientes pediátricos.</p>
-
+        <p class="subtitle-text">Herramienta para el cálculo de fluidoterapia intravenosa en pacientes pediátricos.</p>
 
         <div class="section">
-            <h2 class="section-title">Datos del Paciente</h2>
+            <h2 class="section-title">Datos Iniciales</h2>
+            <div style="text-align: center; margin-bottom: 20px;">
+                <button class="btn" onclick="resetCalculator()">
+                    <span class="emoji-icon">👶🏻</span> Nuevo Paciente
+                </button>
+            </div>
             <div class="input-group">
-                <label for="peso">Peso (kg):</label>
+                <label for="peso">Peso del paciente (kg):</label>
                 <input type="number" id="peso" step="0.1" min="0.1" class="custom-input-select">
             </div>
-            <p class="nota-text" style="margin-top: 0; margin-bottom: 15px;">NOTA: Los siguientes cálculos son adecuados para mayores de un mes de vida.</p>
+            <p class="nota-text"><strong>NOTA:</strong> Los siguientes cálculos son adecuados para mayores de un mes de vida.</p>
             <div class="input-group">
                 <label>Volumen de la bolsa de suero que se va a emplear (ml):</label>
                 <div class="radio-group" id="volumenBolsaOptions">
@@ -477,18 +552,72 @@
                     </label>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 20px;">
-                <button class="btn" onclick="resetCalculator()">
-                    <span class="emoji-icon">👶🏻</span> Nuevo Paciente
-                </button>
+             <p class="nota-text">
+                <strong class="negro">GUÍA DE USO:</strong><br>
+                <strong style="color: #422006;">1º</strong> Elección del suero base del que se va a partir (en el programa de prescripción).<br>
+                <strong style="color: #422006;">2º</strong> Cálculo del ritmo de infusión según la sueroterapia elegida.<br>
+                <strong style="color: #422006;">3º</strong> Ajuste de los electrolitos según se precise.<br>
+                <strong style="color: #422006;">4º</strong> Pauta final con todos estos cálculos.
+             </p>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">Elección del Suero Base</h2>
+             <div class="consideraciones-previas-container">
+                <h4 class="consideraciones-previas-title">Sueros preferentes según sueroterapia</h4>
+                <ul>
+                    <li><strong>Necesidades basales:</strong> <code>Salino 0,9%</code> (u otra solución balanceada) + <code>Gluc 5%</code> +/- <code>K+ 20 mEq/L</code>.</li>
+                    <li><strong>RIV rápida:</strong> <code>Salino 0,9%</code> (u otra solución balanceada) +/- <code>Gluc 2,5%</code>.</li>
+                    <li><strong>RIV clásica:</strong> <code>Salino 0,9%</code> + <code>Gluc 5%</code> +/- <code>K+ 20 mEq/L</code>.</li>
+                    <li><strong>HipoNa+ o HiperNa+:</strong> Según natremia (Ver apartado <strong>🧂Sodio</strong>).</li>
+                    <li><strong>Acidosis:</strong> Considerar <code>Ringer lactato</code> y <code>Bicarbonato 1/6M</code> (Ver apartado <strong>⚠️Acidosis</strong>).</li>
+                </ul>
+            </div>
+            <div style="text-align: center;">
+                <button id="toggleSuerosBtn" class="btn"><span class="emoji-icon">👁️</span>Mostrar Composición de Sueros</button>
+            </div>
+            <div id="tablaSuerosContainer" class="collapsible-container">
+                <div>
+                    <div class="table-wrapper sueros-table-container" style="margin-top:20px;">
+                        <table class="sueros-table">
+                            <thead>
+                                <tr>
+                                    <th>SUERO</th>
+                                    <th>Osm (mosm/L)</th>
+                                    <th>Glucosa (g/100mL)</th>
+                                    <th>Na (mEq/L)</th>
+                                    <th>CL (mEq/L)</th>
+                                    <th>K (mEq/L)</th>
+                                    <th>HCO3 (mEq/L)</th>
+                                    <th>Ca (mEq/L)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>GR50</td><td>2770</td><td>50</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+                                <tr><td>Salino 0,9%</td><td>308</td><td>-</td><td>154</td><td>154</td><td>-</td><td>-</td><td>-</td></tr>
+                                <tr><td>Salino 0,45%</td><td>154</td><td>-</td><td>77</td><td>77</td><td>-</td><td>-</td><td>-</td></tr>
+                                <tr><td>Salino 20%</td><td>6.800</td><td>-</td><td>3.400</td><td>3.400</td><td>-</td><td>-</td><td>-</td></tr>
+                                <tr><td>Salino 1M</td><td>2.000</td><td>-</td><td>1.000</td><td>1.000</td><td>-</td><td>-</td><td>-</td></tr>
+                                <tr><td>Salino 3%</td><td>1.026</td><td>-</td><td>513</td><td>513</td><td>-</td><td>-</td><td>-</td></tr>
+                                <tr><td>Salino 0,9% + Gluc 5%</td><td>585</td><td>5</td><td>154</td><td>154</td><td>-</td><td>-</td><td>-</td></tr>
+                                <tr><td>Glucosalino 1/2</td><td>290</td><td>2.5</td><td>77</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
+                                <tr><td>Glucosalino 1/3</td><td>285</td><td>3.3</td><td>51</td><td>77</td><td>-</td><td>-</td><td>-</td></tr>
+                                <tr><td>Glucosalino 1/5</td><td>280</td><td>4</td><td>30</td><td>51</td><td>-</td><td>-</td><td>-</td></tr>
+                                <tr><td>Bicarbonato 1M</td><td>2.000</td><td>-</td><td>1.000</td><td>-</td><td>-</td><td>1.000</td><td>-</td></tr>
+                                <tr><td>Bicarbonato 1/6M</td><td>334</td><td>-</td><td>167</td><td>-</td><td>-</td><td>167</td><td>-</td></tr>
+                                <tr><td>Ringer Lactato</td><td>273</td><td>-</td><td>130</td><td>109</td><td>4</td><td>28</td><td>3</td></tr>
+                                <tr><td>Glucosado 5% + 20 mL de Salino 20%/500mL + 10 mEq ClK/500mL</td><td>596</td><td>5</td><td>132</td><td>151</td><td>20</td><td>-</td><td>-</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
 
-
         <div class="section">
-            <h2 class="section-title">Modalidad de Sueroterapia</h2>
+            <h2 class="section-title">Tipo de Sueroterapia</h2>
             <div class="input-group">
-                <label for="modalidad">Seleccione la modalidad:</label>
+                <label for="modalidad">Seleccione el tipo de sueroterapia:</label>
                 <select id="modalidad" onchange="showModalidadOptions()" class="custom-input-select">
                     <option value="">-- Seleccione --</option>
                     <option value="basales">Necesidades basales (Holiday y Segar)</option>
@@ -497,45 +626,22 @@
                 </select>
             </div>
 
-
-            <div id="gorelick-section" style="display: none; background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-top:20px; border: 1px solid #dee2e6;">
-                <h3 class="styled-h3">Escala de Gorelick (Valoración de deshidratación)</h3>
-                <div id="gorelick-items-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div class="gorelick-item"><label><input type="checkbox" name="gorelick" value="1"> Ojos hundidos</label></div>
-                    <div class="gorelick-item"><label><input type="checkbox" name="gorelick" value="1"> Mucosas secas</label></div>
-                    <div class="gorelick-item"><label><input type="checkbox" name="gorelick" value="1"> Ausencia de lágrima</label></div>
-                    <div class="gorelick-item"><label><input type="checkbox" name="gorelick" value="1"> Pérdida de turgencia cutánea</label></div>
-                    <div class="gorelick-item"><label><input type="checkbox" name="gorelick" value="1"> Deterioro del estado general</label></div>
-                    <div class="gorelick-item"><label><input type="checkbox" name="gorelick" value="1"> Pulso radial débil</label></div>
-                    <div class="gorelick-item"><label><input type="checkbox" name="gorelick" value="1"> Frecuencia cardíaca >150 lpm</label></div>
-                    <div class="gorelick-item"><label><input type="checkbox" name="gorelick" value="1"> Respiración anormal</label></div>
-                    <div class="gorelick-item"><label><input type="checkbox" name="gorelick" value="1"> Oliguria</label></div>
-                    <div class="gorelick-item"><label><input type="checkbox" name="gorelick" value="1"> Relleno capilar >2 seg</label></div>
-                </div>
-                <button class="btn mt-4" onclick="calcularGorelick()">
-                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon">
-                        <rect x="4" y="2" width="16" height="20" rx="2" fill="#FFECB3"/> <path d="M6 5H18V11H6V5Z" fill="#FFF9C4"/> <rect x="7" y="13" width="2.5" height="2" rx="0.5" fill="#FFA000"/> <rect x="10.75" y="13" width="2.5" height="2" rx="0.5" fill="#FFA000"/> <rect x="14.5" y="13" width="2.5" height="2" rx="0.5" fill="#FFA000"/> <rect x="7" y="16" width="2.5" height="2" rx="0.5" fill="#FFA000"/> <rect x="10.75" y="16" width="2.5" height="2" rx="0.5" fill="#FFA000"/> <rect x="14.5" y="16" width="2.5" height="2" rx="0.5" fill="#E65100"/> <rect x="7" y="19" width="2.5" height="2" rx="0.5" fill="#FFA000"/> <rect x="10.75" y="19" width="6.25" height="2" rx="0.5" fill="#E65100"/> </svg>
-                    Calcular Puntuación
-                </button>
-                <div id="resultado-gorelick" class="result" style="display: none; margin-top:15px;"></div>
-            </div>
-
-
+            <!-- OPCIONES BASALES -->
             <div id="modalidad-basales" class="modalidad-options" style="display: none;">
                 <div class="input-group">
-                    <label for="fraccionNecesidadesBasales">Tipo de Necesidades Basales:</label>
+                    <label for="fraccionNecesidadesBasales">Tipo de necesidades basales:</label>
                     <select id="fraccionNecesidadesBasales" class="custom-input-select">
-                        <option value="1" selected>Necesidades Basales Completas</option>
-                        <option value="2/3">⅔ de Necesidades Basales</option>
-                        <option value="1/2">½ de Necesidades Basales</option>
-                        <option value="1/3">⅓ de Necesidades Basales</option>
+                        <option value="1" selected>Necesidades basales completas</option>
+                        <option value="2/3">⅔ de necesidades basales</option>
+                        <option value="1/2">½ de necesidades basales</option>
+                        <option value="1/3">⅓ de necesidades basales</option>
                     </select>
                 </div>
-                 <p class="nota-text">NOTA: Si sospecha de SIADH (hiponatremia junto con sodio en orina >25 mEq/L o EFNa >1), ajustar ritmo de infusión según la natremia: 135-130 mEq/L: ⅔ de Necesidades Basales; 130-125 mEq/L: ½ de Necesidades Basales; 125-120 mEq/L: ⅓ de Necesidades Basales y valorar furosemida IV.</p>
+                 <p class="nota-text"><strong>NOTA:</strong> Si sospecha de SIADH (hiponatremia junto con sodio en orina >25 mEq/L o EFNa >1), ajustar ritmo de infusión según la natremia: 135-130 mEq/L: ⅔ de Necesidades Basales; 130-125 mEq/L: ½ de Necesidades Basales; 125-120 mEq/L: ⅓ de Necesidades Basales y valorar furosemida IV.</p>
                 <button class="btn" onclick="calcularBasales()">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon">
                         <rect x="4" y="2" width="16" height="20" rx="2" fill="#FFECB3"/> 
-                        <path d="M6 5H18V11H6V5Z" fill="#FFF9C4"/> 
+                        <path d="M6 5H18V11H6V5Z" fill="#FFE082"/> 
                         <rect x="7" y="13" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
                         <rect x="10.75" y="13" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
                         <rect x="14.5" y="13" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
@@ -547,12 +653,100 @@
                     </svg>
                     Calcular Necesidades Basales
                 </button>
-                <div id="resultado-basales" class="result" style="display: none;"></div>
+                <div id="resultado-basales" class="result"></div>
             </div>
 
-
+            <!-- OPCIONES RIV RÁPIDA -->
             <div id="modalidad-rapida" class="modalidad-options" style="display: none;">
                 <div class="input-group">
+                    <label>¿Pérdida de peso cuantificada entre visitas recientes a urgencias?</label>
+                    <div class="radio-group" id="pesoCuantificadoOptions">
+                        <label><input type="radio" name="pesoCuantificado" value="si"> Sí</label>
+                        <label><input type="radio" name="pesoCuantificado" value="no" checked> No</label>
+                    </div>
+                </div>
+
+                <div id="perdida-peso-section" style="display: none; background-color: #f0f9ff; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                    <div class="input-group">
+                        <label for="pesoPerdido">Peso perdido (kg):</label>
+                        <input type="number" id="pesoPerdido" step="0.1" min="0" class="custom-input-select">
+                    </div>
+                    <button class="btn" onclick="calcularDeficitPorPesoPerdido()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon">
+                            <rect x="4" y="2" width="16" height="20" rx="2" fill="#FFECB3"/>
+                            <path d="M6 5H18V11H6V5Z" fill="#FFE082"/>
+                            <rect x="7" y="13" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
+                            <rect x="10.75" y="13" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
+                            <rect x="14.5" y="13" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
+                            <rect x="7" y="16" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
+                            <rect x="10.75" y="16" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
+                            <rect x="14.5" y="16" width="2.5" height="2" rx="0.5" fill="#E65100"/>
+                            <rect x="7" y="19" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
+                            <rect x="10.75" y="19" width="6.25" height="2" rx="0.5" fill="#E65100"/>
+                        </svg>
+                        Calcular déficit de líquidos
+                    </button>
+                </div>
+
+                <div id="valoracion-clinica-section">
+                    <div id="gorelick-section-rapida" style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; border: 1px solid #dee2e6;">
+                        <h3 class="styled-h3">Escala de Gorelick (Valoración de deshidratación)</h3>
+                        <div id="gorelick-items-container-rapida" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="gorelick-item"><label><input type="checkbox" name="gorelickRapida" value="1"> Ojos hundidos</label></div>
+                            <div class="gorelick-item"><label><input type="checkbox" name="gorelickRapida" value="1"> Mucosas secas</label></div>
+                            <div class="gorelick-item"><label><input type="checkbox" name="gorelickRapida" value="1"> Ausencia de lágrima</label></div>
+                            <div class="gorelick-item"><label><input type="checkbox" name="gorelickRapida" value="1"> Pérdida de turgencia cutánea</label></div>
+                            <div class="gorelick-item"><label><input type="checkbox" name="gorelickRapida" value="1"> Deterioro del estado general</label></div>
+                            <div class="gorelick-item"><label><input type="checkbox" name="gorelickRapida" value="1"> Pulso radial débil</label></div>
+                            <div class="gorelick-item"><label><input type="checkbox" name="gorelickRapida" value="1"> Frecuencia cardíaca >150 lpm</label></div>
+                            <div class="gorelick-item"><label><input type="checkbox" name="gorelickRapida" value="1"> Respiración anormal</label></div>
+                            <div class="gorelick-item"><label><input type="checkbox" name="gorelickRapida" value="1"> Oliguria</label></div>
+                            <div class="gorelick-item"><label><input type="checkbox" name="gorelickRapida" value="1"> Relleno capilar >2 seg</label></div>
+                        </div>
+                        <button class="btn mt-4" onclick="calcularGorelickRapida()">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon">
+                                <rect x="4" y="2" width="16" height="20" rx="2" fill="#FFECB3"/>
+                                <path d="M6 5H18V11H6V5Z" fill="#FFE082"/>
+                                <rect x="7" y="13" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
+                                <rect x="10.75" y="13" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
+                                <rect x="14.5" y="13" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
+                                <rect x="7" y="16" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
+                                <rect x="10.75" y="16" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
+                                <rect x="14.5" y="16" width="2.5" height="2" rx="0.5" fill="#E65100"/>
+                                <rect x="7" y="19" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
+                                <rect x="10.75" y="19" width="6.25" height="2" rx="0.5" fill="#E65100"/>
+                            </svg>
+                            Calcular Puntuación
+                        </button>
+                         <div id="resultado-gorelick-rapida" class="result" style="margin-top: 15px;"></div>
+                    </div>
+
+                    <div id="porcentaje-deshidratacion-rapida-section" style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin-top:20px; border: 1px solid #dee2e6;">
+                        <div class="input-group">
+                            <label for="porcentajeDeshidratacionRapida">Porcentaje de deshidratación (%):</label>
+                            <input type="number" id="porcentajeDeshidratacionRapida" step="0.1" min="0" class="custom-input-select">
+                        </div>
+                        <button class="btn" onclick="calcularDeficitPorPorcentaje()">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon">
+                                <rect x="4" y="2" width="16" height="20" rx="2" fill="#FFECB3"/>
+                                <path d="M6 5H18V11H6V5Z" fill="#FFE082"/>
+                                <rect x="7" y="13" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
+                                <rect x="10.75" y="13" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
+                                <rect x="14.5" y="13" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
+                                <rect x="7" y="16" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
+                                <rect x="10.75" y="16" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
+                                <rect x="14.5" y="16" width="2.5" height="2" rx="0.5" fill="#E65100"/>
+                                <rect x="7" y="19" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
+                                <rect x="10.75" y="19" width="6.25" height="2" rx="0.5" fill="#E65100"/>
+                            </svg>
+                            Calcular déficit de líquidos
+                        </button>
+                    </div>
+                </div>
+
+                <div id="resultado-deficit-rapida" class="result" style="margin-top:15px;"></div>
+                
+                <div class="input-group" style="margin-top: 25px;">
                     <label for="tiempoRehidratacionRapida">Tiempo de rehidratación intravenosa rápida (20ml/kg/hora):</label>
                     <select id="tiempoRehidratacionRapida" class="custom-input-select">
                         <option value="1">1 hora</option>
@@ -561,11 +755,10 @@
                         <option value="4">4 horas</option>
                     </select>
                 </div>
-                <p class="nota-text" style="margin-top: 0; margin-bottom: 15px;">NOTA: Contraindicada en &lt;3 meses de vida, inestabilidad hemodinámica, deshidratación grave &gt;9%, sodio &gt;150 mEq/L ó &lt;130 mEq/L, y cardiopatía o nefropatía significativas.</p>
                 <button class="btn" onclick="calcularRapida()">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon">
                         <rect x="4" y="2" width="16" height="20" rx="2" fill="#FFECB3"/>
-                        <path d="M6 5H18V11H6V5Z" fill="#FFF9C4"/>
+                        <path d="M6 5H18V11H6V5Z" fill="#FFE082"/>
                         <rect x="7" y="13" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
                         <rect x="10.75" y="13" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
                         <rect x="14.5" y="13" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
@@ -577,25 +770,73 @@
                     </svg>
                     Calcular Rehidratación Rápida
                 </button>
-                <div id="resultado-rapida" class="result" style="display: none;"></div>
-                <p class="nota-text">NOTA: Reevaluaciones horarias del paciente durante la rehidratación intravenosa rápida, evaluando signos de sobrecarga de volumen o persistencia de deshidratación. Vigilar diuresis. Pesar al paciente antes de iniciar la rehidratación y previo a alta de urgencias pediátricas.</p>
+                <div id="resultado-rapida" class="result"></div>
+                 <p class="nota-text" style="margin-top: 20px;"><strong class="negro">CONSIDERACIONES DURANTE RIV RÁPIDA:</strong><br>• No superar el ritmo máximo de 700 ml/h, y no infundir un volumen mayor al déficit de líquidos calculado.<br>• Reevaluaciones horarias de signos de sobrecarga de volumen o persistencia de deshidratación, vigilar diuresis.<br>• Pesar al paciente antes de iniciar la rehidratación y previo a alta.</p>
             </div>
-
-
+            
+             <!-- OPCIONES RIV CLÁSICA -->
             <div id="modalidad-clasica" class="modalidad-options" style="display: none;">
-                <div class="result" id="basales-clasica-display" style="display: none;"></div>
+                <div class="input-group">
+                    <label>¿Pérdida de peso cuantificada entre visitas recientes a urgencias?</label>
+                    <div class="radio-group" id="pesoCuantificadoOptionsClasica">
+                        <label><input type="radio" name="pesoCuantificadoClasica" value="si"> Sí</label>
+                        <label><input type="radio" name="pesoCuantificadoClasica" value="no" checked> No</label>
+                    </div>
+                </div>
+                 <div id="perdida-peso-section-clasica" style="display: none; background-color: #f0f9ff; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                    <div class="input-group">
+                        <label for="pesoPerdidoClasica">Peso perdido (kg):</label>
+                        <input type="number" id="pesoPerdidoClasica" step="0.1" min="0" class="custom-input-select">
+                    </div>
+                </div>
+                <div id="valoracion-clinica-section-clasica">
+                     <div id="gorelick-section-clasica" style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; border: 1px solid #dee2e6;">
+                        <h3 class="styled-h3">Escala de Gorelick (Valoración de deshidratación)</h3>
+                        <div id="gorelick-items-container-clasica" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="gorelick-item"><label><input type="checkbox" name="gorelickClasica" value="1"> Ojos hundidos</label></div>
+                            <div class="gorelick-item"><label><input type="checkbox" name="gorelickClasica" value="1"> Mucosas secas</label></div>
+                            <div class="gorelick-item"><label><input type="checkbox" name="gorelickClasica" value="1"> Ausencia de lágrima</label></div>
+                            <div class="gorelick-item"><label><input type="checkbox" name="gorelickClasica" value="1"> Pérdida de turgencia cutánea</label></div>
+                            <div class="gorelick-item"><label><input type="checkbox" name="gorelickClasica" value="1"> Deterioro del estado general</label></div>
+                            <div class="gorelick-item"><label><input type="checkbox" name="gorelickClasica" value="1"> Pulso radial débil</label></div>
+                            <div class="gorelick-item"><label><input type="checkbox" name="gorelickClasica" value="1"> Frecuencia cardíaca >150 lpm</label></div>
+                            <div class="gorelick-item"><label><input type="checkbox" name="gorelickClasica" value="1"> Respiración anormal</label></div>
+                            <div class="gorelick-item"><label><input type="checkbox" name="gorelickClasica" value="1"> Oliguria</label></div>
+                            <div class="gorelick-item"><label><input type="checkbox" name="gorelickClasica" value="1"> Relleno capilar >2 seg</label></div>
+                        </div>
+                        <button class="btn mt-4" onclick="calcularGorelickClasica()">
+                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon">
+                                <rect x="4" y="2" width="16" height="20" rx="2" fill="#FFECB3"/>
+                                <path d="M6 5H18V11H6V5Z" fill="#FFE082"/>
+                                <rect x="7" y="13" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
+                                <rect x="10.75" y="13" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
+                                <rect x="14.5" y="13" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
+                                <rect x="7" y="16" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
+                                <rect x="10.75" y="16" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
+                                <rect x="14.5" y="16" width="2.5" height="2" rx="0.5" fill="#E65100"/>
+                                <rect x="7" y="19" width="2.5" height="2" rx="0.5" fill="#FFA000"/>
+                                <rect x="10.75" y="19" width="6.25" height="2" rx="0.5" fill="#E65100"/>
+                            </svg>
+                            Calcular Puntuación
+                        </button>
+                        <div id="resultado-gorelick-clasica" class="result" style="margin-top: 15px;"></div>
+                     </div>
+                     <div class="input-group" id="porcentaje-deshidratacion-clasica-section" style="margin-top: 25px;">
+                        <label for="porcentajeDeshidratacion">Porcentaje de deshidratación (%):</label>
+                        <input type="number" id="porcentajeDeshidratacion" step="0.1" min="0" class="custom-input-select">
+                    </div>
+                </div>
+
+                <div class="result" id="basales-clasica-display" style="margin-top: 20px;"></div>
                  <div class="input-group">
-                    <label>¿Administrada expansión de volumen?</label>
+                    <label>¿Administrada expansión o RIV rápida previa?:</label>
                     <div class="radio-group" id="expansionVolumenOptions">
                         <label><input type="radio" name="expansionVolumen" value="no" checked> No</label>
                         <label><input type="radio" name="expansionVolumen" value="si"> Sí</label>
                         <input type="number" id="volumenExpansionMl" class="inline-input custom-input-select" step="1" min="0" placeholder="ml" style="display: none; width: 100px;">
                     </div>
                 </div>
-                <div class="input-group">
-                    <label for="porcentajeDeshidratacion">Porcentaje de deshidratación (%):</label>
-                    <input type="number" id="porcentajeDeshidratacion" step="0.1" min="0" class="custom-input-select">
-                </div>
+                
                 <div class="input-group">
                     <label>Pérdidas mantenidas:</label>
                     <div class="radio-group">
@@ -603,7 +844,7 @@
                         <label><input type="radio" name="perdidasMantenidas" value="quantified"> Cuantificadas</label>
                         <input type="number" id="perdidasMantenidasValor" class="inline-input custom-input-select" step="0.1" min="0" placeholder="ml/kg/día" style="display: none;">
                     </div>
-                    <p class="nota-text">NOTA: Pérdidas estimadas por diarrea: Leve (10-15 ml/kg/día); Moderada (25-50 ml/kg/día); Grave (50-75 ml/kg/día).</p>
+                    <p class="nota-text"><strong>NOTA:</strong> Pérdidas estimadas por diarrea: Leve (10-15 ml/kg/día); Moderada (25-50 ml/kg/día); Grave (50-75 ml/kg/día).</p>
                 </div>
                 <div class="input-group">
                     <label>Corrección del déficit en 24h (según natremia):</label>
@@ -612,7 +853,7 @@
                         <label><input type="radio" name="correccionDeficit" value="2/3">2/3 del volumen total</label>
                         <label><input type="radio" name="correccionDeficit" value="1/3">1/3 del volumen total</label>
                     </div>
-                    <p class="nota-text">NOTA: La reposición del déficit de líquidos en las deshidrataciones isotónicas se realiza en 24 horas. Considerar una reposición más lenta del déficit en alteraciones de la natremia, considerando mayor lentitud contra mayor sea la magnitud de dicha alteración y más lenta haya sido su instauración.</p>
+                    <p class="nota-text"><strong>NOTA:</strong> La reposición del déficit de líquidos en las deshidrataciones isotónicas se realiza en 24 horas. Considerar una reposición más lenta del déficit en alteraciones de la natremia, considerando mayor lentitud contra mayor sea la magnitud de dicha alteración y más lenta haya sido su instauración.</p>
                 </div>
                 <button class="btn" onclick="calcularClasica()">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon">
@@ -629,51 +870,11 @@
                     </svg>
                     Calcular Rehidratación Clásica
                 </button>
-                <div id="resultado-clasica" class="result" style="display: none;"></div>
-                <p class="nota-text">NOTA: Reevaluaciones periódicas del paciente durante la rehidratación intravenosa clásica, evaluando signos de sobrecarga de volumen o persistencia de deshidratación. Vigilar diuresis. Pesar al paciente antes de iniciar la rehidratación y diariamente mientras se mantenga sueroterapia.</p>
+                <div id="resultado-clasica" class="result"></div>
+                <p class="nota-text"><strong class="negro">CONSIDERACIONES DURANTE RIV CLÁSICA:</strong><br>• Reevaluaciones periódicas, evaluando signos de sobrecarga de volumen o persistencia de deshidratación, vigilar diuresis.<br>• Pesar al paciente antes de iniciar la rehidratación y diariamente mientras se mantenga sueroterapia.</p>
             </div>
         </div>
-
-
-        <div class="section">
-            <h2 class="section-title">Composición de los sueros más empleados</h2>
-            <div style="text-align: center;">
-                <button id="toggleSuerosBtn" class="btn"><span class="emoji-icon">👁️</span>Mostrar Composición de Sueros</button>
-            </div>
-            <div id="tablaSuerosContainer" class="sueros-table-container" style="display: none; margin-top: 20px;">
-                <table class="sueros-table">
-                    <thead>
-                        <tr>
-                            <th>SUERO</th>
-                            <th>Osm (mosm/L)</th>
-                            <th>Glucosa (g/100mL)</th>
-                            <th>Na (mEq/L)</th>
-                            <th>CL (mEq/L)</th>
-                            <th>K (mEq/L)</th>
-                            <th>HCO3 (mEq/L)</th>
-                            <th>Ca (mEq/L)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>GR50</td><td>2770</td><td>50</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-                        <tr><td>Salino 0,9%</td><td>308</td><td>-</td><td>154</td><td>154</td><td>-</td><td>-</td><td>-</td></tr>
-                        <tr><td>Salino 0,45%</td><td>154</td><td>-</td><td>77</td><td>77</td><td>-</td><td>-</td><td>-</td></tr>
-                        <tr><td>Salino 20%</td><td>6.800</td><td>-</td><td>3.400</td><td>3.400</td><td>-</td><td>-</td><td>-</td></tr>
-                        <tr><td>Salino 1M</td><td>2.000</td><td>-</td><td>1.000</td><td>1.000</td><td>-</td><td>-</td><td>-</td></tr>
-                        <tr><td>Salino 3%</td><td>1.026</td><td>-</td><td>513</td><td>513</td><td>-</td><td>-</td><td>-</td></tr>
-                        <tr><td>Salino 0,9% + Gluc 5%</td><td>585</td><td>5</td><td>154</td><td>154</td><td>-</td><td>-</td><td>-</td></tr>
-                        <tr><td>Glucosalino 1/2</td><td>290</td><td>2.5</td><td>77</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-                        <tr><td>Glucosalino 1/3</td><td>285</td><td>3.3</td><td>51</td><td>77</td><td>-</td><td>-</td><td>-</td></tr>
-                        <tr><td>Glucosalino 1/5</td><td>280</td><td>4</td><td>30</td><td>51</td><td>-</td><td>-</td><td>-</td></tr>
-                        <tr><td>Bicarbonato 1M</td><td>2.000</td><td>-</td><td>1.000</td><td>-</td><td>-</td><td>1.000</td><td>-</td></tr>
-                        <tr><td>Bicarbonato 1/6M</td><td>334</td><td>-</td><td>167</td><td>-</td><td>-</td><td>167</td><td>-</td></tr>
-                        <tr><td>Ringer Lactato</td><td>273</td><td>-</td><td>130</td><td>109</td><td>4</td><td>28</td><td>3</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-
+       
         <div class="section">
             <h2 class="section-title">Electrolitos y Correcciones</h2>
             <div class="tabs">
@@ -683,9 +884,8 @@
                 <button class="tab-button" onclick="openTab(event, 'acidosis')"><span class="emoji-icon">⚠️</span>Acidosis</button>
             </div>
 
-
             <div id="glucosa" class="tab-content active">
-                <p id="nota-glucosa-rapida" class="nota-text" style="display: none;">NOTA: En la rehidratación intravenosa rápida, añadir glucosa al 2,5% si glucemia normal y cetosis. También puede añadirse (con menor grado de evidencia) cuando la glucemia y cetonemia son normales. Si glucemia >140 mg/dL, no añadir glucosa.</p>
+                <p id="nota-glucosa-rapida" class="nota-text" style="display: none;"></p>
                 <div class="input-group">
                     <label>¿Su suero base tiene aportes de glucosa?</label>
                     <div class="radio-group" id="sueroBaseGlucosaOptions">
@@ -697,7 +897,7 @@
                     <label for="concentracionGlucosa">Concentración deseada (%):</label>
                     <input type="number" id="concentracionGlucosa" step="0.1" min="0" class="custom-input-select">
                 </div>
-                <p class="nota-text" style="margin-top: -10px; margin-bottom:15px;">NOTA: Por vía venosa periférica, la concentración máxima de glucosa sería de un 12%, en el caso de precisar una concentración mayor se requeriría de una vía venosa central.</p>
+                <p class="nota-text"><strong>NOTA:</strong> Por vía venosa periférica, la concentración máxima de glucosa sería de un 12%, en el caso de precisar una concentración mayor se requeriría de una vía venosa central.</p>
                 <div class="input-group">
                     <label>Unidad de aporte de glucosa:</label>
                     <div class="radio-group">
@@ -720,13 +920,12 @@
                     </svg>
                     Calcular Glucosa
                 </button>
-                <div id="resultado-glucosa" class="result" style="display: none;"></div>
-                 <p class="nota-text">NOTA ACERCA DE LOS RESULTADOS: Si se ha elegido añadir GR50, para que la concentración y los aportes finales se correspondan con los calculados, esto implicaría retirar previamente del suero base el volumen de GR50 que se va a añadir. En la práctica clínica habitual, para reducir manipulaciones, es frecuente no realizar dicha retirada, asumiendo una concentración y aporte de glucosa algo menores a los calculados, en general con escasa relevancia clínica (Ej: añadiendo GR50 a un suero base limpio para alcanzar glucosa al 5%, si no se realiza dicha retirada previa, la concentración resultante sería del 4,5%).</p>
+                <div id="resultado-glucosa" class="result"></div>
+                 <p class="nota-text"><strong>NOTA ACERCA DE LOS RESULTADOS:</strong> Si se ha elegido añadir GR50, para que la concentración y los aportes finales se correspondan con los calculados, esto implicaría retirar previamente del suero base el volumen de GR50 que se va a añadir. En la práctica clínica habitual, para reducir manipulaciones, es frecuente no realizar dicha retirada, asumiendo una concentración y aporte de glucosa algo menores a los calculados, en general con escasa relevancia clínica (Ej: añadiendo GR50 a un suero base limpio para alcanzar glucosa al 5%, si no se realiza dicha retirada previa, la concentración resultante sería del 4,5%).</p>
             </div>
 
-
             <div id="potasio" class="tab-content">
-                <p class="nota-text">NOTA: Antes de añadir potasio, comprobar diuresis adecuada, ausencia de hiperpotasemia y función renal normal.</p>
+                <p class="nota-text"><strong>NOTA:</strong> Antes de añadir potasio, comprobar diuresis adecuada, ausencia de hiperpotasemia y función renal normal.</p>
                  <div class="input-group">
                     <label>¿Su suero base tiene aportes de potasio?</label>
                     <div class="radio-group" id="sueroBasePotasioOptions">
@@ -752,7 +951,7 @@
                         <option value="Acetato potásico">Acetato potásico (1 mEq/mL)</option>
                     </select>
                 </div>
-                <p class="nota-text" style="margin-top:0; margin-bottom:15px;">NOTA: En el caso de emplear una concentración de potasio &gt;40 mEq/L o un aporte de potasio &gt;0,3 mEq/Kg/h, el paciente precisa de monitorización continua de ECG.</p>
+                <p class="nota-text" style="margin-top:0; margin-bottom:15px;"><strong>NOTA:</strong> En el caso de emplear una concentración de potasio &gt;40 mEq/L o un aporte de potasio &gt;0,3 mEq/Kg/h, el paciente precisa de monitorización continua de ECG.</p>
                 <button class="btn" onclick="calcularPotasio()">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon">
                         <rect x="4" y="2" width="16" height="20" rx="2" fill="#FFECB3"/>
@@ -768,23 +967,21 @@
                     </svg>
                     Calcular Potasio
                 </button>
-                <div id="resultado-potasio" class="result" style="display: none;"></div>
-                <p class="nota-text">NOTA ACERCA DE LOS RESULTADOS: Si se ha elegido añadir cloruro/acetato potásico 1M, para que la concentración y los aportes finales se correspondan con los calculados, esto implicaría retirar previamente del suero base el volumen de cloruro o acetato potásico 1M que se va a añadir. En la práctica clínica habitual, para reducir manipulaciones, es frecuente no realizar dicha retirada, asumiendo una concentración y aporte de potasio algo menores a los calculados, en general con escasa relevancia clínica (Ej: añadiendo cloruro potásico 1M a un suero base limpio para alcanzar 20 mEq/L, si no se realiza dicha retirada previa, la concentración resultante sería de 19,6 mEq/L).</p>
+                <div id="resultado-potasio" class="result"></div>
+                <p class="nota-text"><strong>NOTA ACERCA DE LOS RESULTADOS:</strong> Si se ha elegido añadir cloruro/acetato potásico 1M, para que la concentración y los aportes finales se correspondan con los calculados, esto implicaría retirar previamente del suero base el volumen de cloruro o acetato potásico 1M que se va a añadir. En la práctica clínica habitual, para reducir manipulaciones, es frecuente no realizar dicha retirada, asumiendo una concentración y aporte de potasio algo menores a los calculados, en general con escasa relevancia clínica (Ej: añadiendo cloruro potásico 1M a un suero base limpio para alcanzar 20 mEq/L, si no se realiza dicha retirada previa, la concentración resultante sería de 19,6 mEq/L).</p>
             </div>
-
 
             <div id="sodio" class="tab-content">
                  <div class="consideraciones-previas-container">
-                    <h4 class="consideraciones-previas-title">CONSIDERACIONES PREVIAS 🤔</h4>
+                    <h4 class="consideraciones-previas-title">CONSIDERACIONES PREVIAS</h4>
                     <ul>
                         <li><strong>Alteraciones de Natremia:</strong> En deshidratación hiper/hiponatrémica, el Na+ del suero debe ser 15-30 mEq/L menor/mayor que la natremia del paciente.</li>
                         <li><strong>Ritmo de Corrección:</strong> Objetivo 0,5 mEq/L/hora (máx. 12 mEq/L/día). Ajustar suero según controles.</li>
-                        <li><strong>Hiponatremia Grave:</strong> Si Na+ &lt;120 mEq/L y/o convulsiones, valorar bolos SS 3% (2-5 ml/kg).</li>
-                        <li><strong>Recomendación General (RIV Clásica):</strong> Usar Glucosa 5% y K+ 20 mEq/L.</li>
-                        <li><strong>Suero Preferente:</strong> SS 0,9% + Gluc 5% + K+ 20 mEq/L, si cumple con la diferencia de concentración de Na+.</li>
+                        <li><strong>Hiponatremia Grave:</strong> Si Na+ &lt;120 mEq/L y/o convulsiones, valorar bolos de Salino 3% (2-5 ml/kg).</li>
+                        <li><strong>Suero Preferente:</strong> <code>Salino 0,9%</code> + <code>Gluc 5%</code> + <code>K+ 20 mEq/L</code>, si cumple con la diferencia de concentración de Na+.</li>
                         <li>
                             <strong>Concentraciones de Sodio en Sueros Modificados (según se realice o no extracción previa del suero base del volumen de los componentes que se van a añadir):</strong>
-                            <div class="sueros-table-container" style="margin-top: 10px;">
+                            <div class="sueros-table-container table-wrapper" style="margin-top: 10px;">
                                 <table class="sueros-table">
                                     <thead>
                                         <tr>
@@ -807,7 +1004,7 @@
                     </ul>
                 </div>
                 <div class="input-group"> 
-                    <label for="concentracionSodioBase">Concentración de Sodio de mi Suero Base (mEq/L):</label>
+                    <label for="concentracionSodioBase">Concentración de sodio de mi suero base (mEq/L):</label>
                      <input type="number" id="concentracionSodioBase" step="0.1" min="0" class="custom-input-select">
                 </div>
                 <div class="input-group">
@@ -829,14 +1026,13 @@
                     </svg>
                     Calcular Sodio
                 </button>
-                <div id="resultado-sodio" class="result" style="display: none;"></div>
-                <p id="nota-sodio-resultados" class="nota-text" style="display: none; margin-top:15px;">NOTA ACERCA DE LOS RESULTADOS: El redondeo de las centésimas puede implicar una diferencia en la concentración de sodio final variable, <1 mEq/L. Para este cálculo sí se ha tenido en cuenta el aumento del volumen total del disolvente al añadir el suero salino al 20%, por lo que no sería necesario retirar del suero base el volumen de suero salino al 20% que se indica añadir para lograr la concentración de sodio deseada.</p>
+                <div id="resultado-sodio" class="result"></div>
+                <p id="nota-sodio-resultados" class="nota-text" style="display: none; margin-top:15px;"><strong>NOTA ACERCA DE LOS RESULTADOS:</strong> El redondeo de las centésimas puede implicar una diferencia en la concentración de sodio final variable, <1 mEq/L. Para este cálculo sí se ha tenido en cuenta el aumento del volumen total del disolvente al añadir el suero salino al 20%, por lo que no sería necesario retirar del suero base el volumen de suero salino al 20% que se indica añadir para lograr la concentración de sodio deseada.</p>
             </div>
-
 
             <div id="acidosis" class="tab-content">
                 <div class="consideraciones-previas-container">
-                    <h4 class="consideraciones-previas-title">CONSIDERACIONES PREVIAS 🤓</h4>
+                    <h4 class="consideraciones-previas-title">CONSIDERACIONES PREVIAS</h4>
                      <ul>
                         <li><strong>Indicación de Corrección:</strong> Valorar si pH &lt;7,15 - 7,20; EB &lt;-12 y/o HCO3 &lt;10-12 mEq/L.</li>
                         <li><strong>Casos Límite:</strong> La propia rehidratación suele mejorar la acidosis.</li>
@@ -879,32 +1075,49 @@
                     </svg>
                     Calcular Corrección de Acidosis
                 </button>
-                <div id="resultado-acidosis" class="result" style="display: none;"></div>
+                <div id="resultado-acidosis" class="result"></div>
             </div>
         </div>
-
 
         <div class="section">
             <h2 class="section-title">Pauta Final de Sueroterapia</h2>
-            <div class="final-regimen-container"> 
-                <button class="btn btn-final-regimen" onclick="generarPautaFinal()"><span class="emoji-icon">📝</span>Generar Pauta Final</button>
+            <div id="pauta-final" class="result"></div>
+             <div id="pauta-final-copy-container" style="text-align: center; display: none; margin-top: 15px;">
+                <button id="copyPautaBtn" class="btn">📄 Copiar Pauta</button>
             </div>
-            <p id="pauta-final-nota" class="nota-text" style="display: none;"></p>
-            <div id="pauta-final" class="result" style="display: none;"></div>
         </div>
-
 
         <div class="disclaimer-text">
             <p>Esta herramienta, desarrollada por David Tejero Sánchez, pediatra en Madrid, mediante Gemini 2.5 Pro, busca facilitar los cálculos de sueroterapia para minimizar errores de prescripción. Su uso no exime al pediatra prescriptor de su responsabilidad final sobre el tratamiento del paciente y la correcta introducción de los datos requeridos. Las notas informativas proporcionadas, basadas en las guías clínicas nacionales más recientes (a fecha de mayo de 2025), son solo orientativas y no sustituyen el criterio médico. Se prohíbe su copia o modificación.</p>
         </div>
-        <p class="version-text">FluidoPED beta 2.5</p>
-
+        <p class="version-text">FluidoPED beta 3.0</p>
 
     </div>
 
+    <div id="deficit-warning-modal">
+        <p>Volumen total a infundir calculado superior al déficit de líquidos que se ha estimado, valore reducir el tiempo de administración de la rehidratación rápida.</p>
+        <button onclick="closeWarningModal()">Cerrar</button>
+    </div>
+
+    <div id="potassium-warning-modal">
+        <p>Aporte de potasio >0,3 mEq/Kg/h, el paciente precisa de monitorización continua de ECG.</p>
+        <button onclick="closeKWarningModal()">Cerrar</button>
+    </div>
+
+    <div id="copy-toast"></div>
 
     <script>
-        // Function to apply bold style and color to selected radio/checkbox labels
+        // Función para formatear números para mostrar enteros si no hay decimales significativos, si no, 1 o 2 decimales
+        function formatDecimal(num, precision = 1) {
+            if (num === null || num === undefined) return '';
+            const numFloat = parseFloat(num);
+            if (numFloat % 1 === 0) { // Es un entero
+                return numFloat.toString();
+            }
+            return numFloat.toFixed(precision);
+        }
+
+        // Función para aplicar estilo de negrita y color a las etiquetas de radio/checkbox seleccionadas
         function updateLabelStyles(groupName) {
             const inputs = document.getElementsByName(groupName);
             inputs.forEach(input => {
@@ -927,42 +1140,32 @@
         function resetAllCalculationsAndPauta() {
             const resultDivsIds = [
                 'resultado-basales', 'resultado-rapida', 'resultado-clasica',
-                'resultado-gorelick', 'resultado-glucosa', 'resultado-potasio',
-                'resultado-sodio', 'resultado-acidosis', 'pauta-final',
-                'basales-clasica-display'
+                'resultado-gorelick-clasica', 'resultado-gorelick-rapida', 'resultado-glucosa', 'resultado-potasio',
+                'resultado-sodio', 'resultado-acidosis',
+                'basales-clasica-display', 'resultado-deficit-rapida'
             ];
             resultDivsIds.forEach(id => {
                 const div = document.getElementById(id);
                 if (div) {
                     div.innerHTML = '';
-                    div.style.display = 'none';
+                    div.classList.remove('show');
+                    if(div.dataset.deficitCalculado) {
+                        delete div.dataset.deficitCalculado;
+                    }
                 }
             });
-
-
-            const pautaFinalDiv = document.getElementById('pauta-final');
-            if (pautaFinalDiv) {
-                for (const key in pautaFinalDiv.dataset) {
-                    delete pautaFinalDiv.dataset[key];
-                }
-            }
-            const basalesClasicaDiv = document.getElementById('basales-clasica-display');
-            if (basalesClasicaDiv) {
-                 for (const key in basalesClasicaDiv.dataset) {
-                    delete basalesClasicaDiv.dataset[key];
-                }
-            }
-            const pautaFinalNota = document.getElementById('pauta-final-nota');
-            if (pautaFinalNota) {
-                pautaFinalNota.style.display = 'none';
-                pautaFinalNota.innerHTML = '';
-            }
-             const notaSodioResultados = document.getElementById('nota-sodio-resultados');
-            if (notaSodioResultados) {
-                notaSodioResultados.style.display = 'none';
-            }
+            document.getElementById('deficit-warning-modal').style.display = 'none';
+            document.getElementById('potassium-warning-modal').style.display = 'none';
+            resetPautaFinal();
         }
 
+        function resetPautaFinal() {
+            const pautaFinalDiv = document.getElementById('pauta-final');
+            pautaFinalDiv.innerHTML = '';
+            pautaFinalDiv.classList.remove('show');
+            Object.keys(pautaFinalDiv.dataset).forEach(key => delete pautaFinalDiv.dataset[key]);
+            document.getElementById('pauta-final-copy-container').style.display = 'none';
+        }
 
         function openTab(evt, tabName) {
             if (evt && evt.currentTarget && evt.currentTarget.classList.contains('disabled')) {
@@ -988,7 +1191,6 @@
             }
         }
 
-
         function showModalidadOptions() {
             resetAllCalculationsAndPauta(); 
             const modalidad = document.getElementById('modalidad').value;
@@ -997,53 +1199,36 @@
             const sodioTab = document.getElementById('sodio-tab');
             const sueroBaseConGlucosaRadios = document.getElementsByName('sueroBaseConGlucosa');
             const sueroBaseConPotasioRadios = document.getElementsByName('sueroBaseConPotasio');
-            const gorelickSection = document.getElementById('gorelick-section');
-            const resultadoGorelick = document.getElementById('resultado-gorelick');
             const notaGlucosaRapida = document.getElementById('nota-glucosa-rapida');
-
-
+            
             for (let i = 0; i < optionsDivs.length; i++) {
                 optionsDivs[i].style.display = 'none';
             }
-
-
+            
+            notaGlucosaRapida.style.display = 'none';
             potasioTab.classList.remove('disabled');
             sodioTab.classList.remove('disabled');
             enableInputsInTab('potasio');
             enableInputsInTab('sodio');
 
-
-            if (modalidad === 'basales' || modalidad === 'clasica') {
+            if (modalidad === 'basales') {
                 sueroBaseConGlucosaRadios.forEach(radio => radio.value === 'true' ? radio.checked = true : radio.checked = false);
                 sueroBaseConPotasioRadios.forEach(radio => radio.value === 'false' ? radio.checked = true : radio.checked = false);
-                notaGlucosaRapida.style.display = 'none';
             } else if (modalidad === 'rapida') {
+                notaGlucosaRapida.innerHTML = '<strong>NOTA:</strong> En la rehidratación intravenosa rápida, añadir glucosa al 2,5% si glucemia normal y cetosis. También puede añadirse (con menor grado de evidencia) cuando la glucemia y cetonemia son normales. Si glucemia >140 mg/dL, no añadir glucosa.';
+                notaGlucosaRapida.style.display = 'block';
                 sueroBaseConGlucosaRadios.forEach(radio => radio.value === 'false' ? radio.checked = true : radio.checked = false);
                 sueroBaseConPotasioRadios.forEach(radio => radio.value === 'false' ? radio.checked = true : radio.checked = false);
-                notaGlucosaRapida.style.display = 'block';
-            } else {
-                 sueroBaseConGlucosaRadios.forEach(radio => radio.value === 'false' ? radio.checked = true : radio.checked = false);
+                toggleDeficitCalculationMethod('rapida'); 
+            } else if (modalidad === 'clasica') {
+                 sueroBaseConGlucosaRadios.forEach(radio => radio.value === 'true' ? radio.checked = true : radio.checked = false);
                  sueroBaseConPotasioRadios.forEach(radio => radio.value === 'false' ? radio.checked = true : radio.checked = false);
-                 notaGlucosaRapida.style.display = 'none';
+                 toggleDeficitCalculationMethod('clasica');
             }
+
             updateLabelStyles('sueroBaseConGlucosa');
             updateLabelStyles('sueroBaseConPotasio');
             handleSueroBasePotasioChange(); 
-
-
-            if (modalidad === 'rapida' || modalidad === 'clasica') {
-                gorelickSection.style.display = 'block';
-            } else {
-                gorelickSection.style.display = 'none';
-                if(resultadoGorelick) resultadoGorelick.style.display = 'none';
-                if(resultadoGorelick) resultadoGorelick.innerHTML = '';
-                document.querySelectorAll('#gorelick-items-container input[type="checkbox"]').forEach(cb => {
-                    cb.checked = false;
-                    const label = cb.closest('label');
-                    if (label) label.classList.remove('selected-option-text'); 
-                });
-            }
-
 
             if (modalidad) {
                 document.getElementById('modalidad-' + modalidad).style.display = 'block';
@@ -1067,8 +1252,8 @@
                     }
                 }
             }
+            updatePautaFinal();
         }
-
 
         function disableInputsInTab(tabId) {
             const tabContent = document.getElementById(tabId);
@@ -1078,7 +1263,6 @@
             }
         }
 
-
         function enableInputsInTab(tabId) {
             const tabContent = document.getElementById(tabId);
             if (tabContent) {
@@ -1087,7 +1271,6 @@
             }
         }
 
-
         function resetCalculator() {
             document.getElementById('peso').value = '';
             const volumenRadios = document.getElementsByName('volumenBolsa');
@@ -1095,10 +1278,8 @@
             updateVolumeButtonStyles();
             document.getElementById('modalidad').value = '';
 
-
             document.getElementById('fraccionNecesidadesBasales').value = '1';
             document.getElementById('tiempoRehidratacionRapida').value = '2';
-
 
             document.querySelector('input[name="expansionVolumen"][value="no"]').checked = true;
             document.getElementById('volumenExpansionMl').value = '';
@@ -1108,7 +1289,6 @@
             document.getElementById('perdidasMantenidasValor').value = '';
             document.getElementById('perdidasMantenidasValor').style.display = 'none';
             document.querySelector('input[name="correccionDeficit"][value="1"]').checked = true;
-
 
             document.querySelector('input[name="sueroBaseConGlucosa"][value="false"]').checked = true;
             document.getElementById('concentracionGlucosa').value = '';
@@ -1122,42 +1302,32 @@
             document.getElementById('excesoBases').value = '';
             document.querySelector('input[name="correccionAcidosis"][value="1/3"]').checked = true;
             
+            document.querySelector('input[name="pesoCuantificado"][value="no"]').checked = true;
+            document.getElementById('pesoPerdido').value = '';
+            document.getElementById('porcentajeDeshidratacionRapida').value = '';
+            document.querySelector('input[name="pesoCuantificadoClasica"][value="no"]').checked = true;
+            document.getElementById('pesoPerdidoClasica').value = '';
+
             const radioCheckboxGroups = [
                 'expansionVolumen', 'perdidasMantenidas', 'correccionDeficit', 
                 'sueroBaseConGlucosa', 'unidadGlucosa', 'sueroBaseConPotasio', 
-                'concentracionPotasio', 'correccionAcidosis', 'gorelick'
+                'concentracionPotasio', 'correccionAcidosis', 'pesoCuantificado', 'pesoCuantificadoClasica'
             ];
-            radioCheckboxGroups.forEach(groupName => {
-                 document.getElementsByName(groupName).forEach(input => {
-                    let label = input.closest('label');
-                    if (label) {
-                         label.classList.remove('selected-option-text');
-                         if(input.checked) label.classList.add('selected-option-text'); 
-                    }
-                });
-            });
-
-
-
-
-            document.getElementById('gorelick-section').style.display = 'none';
-            const resultadoGorelick = document.getElementById('resultado-gorelick');
-            if(resultadoGorelick) {
-                resultadoGorelick.style.display = 'none';
-                resultadoGorelick.innerHTML = '';
-            }
-            document.querySelectorAll('#gorelick-items-container input[type="checkbox"]').forEach(cb => {
+            radioCheckboxGroups.forEach(groupName => updateLabelStyles(groupName));
+             
+            document.querySelectorAll('input[name^="gorelick"]').forEach(cb => {
                 cb.checked = false;
                  const label = cb.closest('label');
                  if(label) label.classList.remove('selected-option-text');
             });
             document.getElementById('nota-glucosa-rapida').style.display = 'none';
 
-
             showModalidadOptions(); 
-            openTab(null, 'glucosa'); 
+            openTab(null, 'glucosa');
+            
+            toggleDeficitCalculationMethod('rapida');
+            toggleDeficitCalculationMethod('clasica');
         }
-
 
         function updateVolumeButtonStyles() {
             const labels = document.querySelectorAll('#volumenBolsaOptions label.volume-option');
@@ -1176,33 +1346,29 @@
             return selectedRadio ? parseFloat(selectedRadio.value) : 500; 
         }
 
-
         function calcularBasales(isClassic = false) {
             const peso = parseFloat(document.getElementById('peso').value);
             const fraccionNecesidadesSelect = document.getElementById('fraccionNecesidadesBasales');
             const fraccionNecesidadesValue = fraccionNecesidadesSelect.value;
             const fraccionNecesidadesText = fraccionNecesidadesSelect.options[fraccionNecesidadesSelect.selectedIndex].text;
 
-
             const resultadoDiv = isClassic ? document.getElementById('basales-clasica-display') : document.getElementById('resultado-basales');
             const pautaFinalDataset = document.getElementById('pauta-final').dataset;
 
-
             delete pautaFinalDataset.fraccionBasalDesc; 
-
 
             if (isNaN(peso) || peso <= 0) {
                 resultadoDiv.innerHTML = '<strong style="color: red;">Por favor, ingrese un peso válido.</strong>';
-                resultadoDiv.style.display = 'block';
+                resultadoDiv.classList.add('show');
                 delete pautaFinalDataset.volumenBasal;
                 delete pautaFinalDataset.ritmoBasal;
                 if (isClassic) {
                     delete resultadoDiv.dataset.volumenBasal;
                     delete resultadoDiv.dataset.ritmoBasal;
                 }
+                updatePautaFinal();
                 return;
             }
-
 
             let volumenTotal24hOriginal;
             if (peso <= 10) {
@@ -1213,7 +1379,6 @@
                 volumenTotal24hOriginal = 1500 + (peso - 20) * 20;
             }
 
-
             let factorFraccion = 1;
             let fraccionDesc = fraccionNecesidadesText; 
             if (fraccionNecesidadesValue === "2/3") {
@@ -1223,8 +1388,6 @@
             } else if (fraccionNecesidadesValue === "1/3") {
                 factorFraccion = 1/3;
             }
-
-
 
 
             let volumenTotal24h = volumenTotal24hOriginal * factorFraccion;
@@ -1238,7 +1401,6 @@
                  maxVolReached = true;
             }
 
-
             let ritmoInfusion = volumenTotal24hDisplay / 24;
             let ritmoInfusionDisplay = ritmoInfusion;
             let maxRitmoReached = false;
@@ -1250,89 +1412,102 @@
                 maxRitmoReached = true;
             }
 
-
             if (maxRitmoReached && factorFraccion === 1) {
                 volumenTotal24hDisplay = ritmoInfusionDisplay * 24;
                 if (volumenTotal24hDisplay > 2400) volumenTotal24hDisplay = 2400;
                 maxVolReached = true;
             }
 
-
             pautaFinalDataset.fraccionBasalDesc = fraccionDesc;
 
+            const volDisplayRounded = Math.round(volumenTotal24hDisplay);
+            const ritmoDisplayRounded = Math.round(ritmoInfusionDisplay);
 
             let resultHTML = `
                 <strong>Necesidades Basales (${fraccionDesc}):</strong><br>
-                Volumen total a infundir en 24 horas: ${volumenTotal24hDisplay.toFixed(1)} ml ${maxVolReached ? '(Máx. 2400 ml/día)' : ''}<br>
-                Ritmo de infusión: ${ritmoInfusionDisplay.toFixed(1)} ml/h ${maxRitmoReached ? '(Máx. 100 ml/h)' : ''}
+                Volumen total a infundir en 24 horas: ${volDisplayRounded} ml ${maxVolReached ? '(Máx. 2400 ml/día)' : ''}<br>
+                Ritmo de infusión: ${ritmoDisplayRounded} ml/h ${maxRitmoReached ? '(Máx. 100 ml/h)' : ''}
             `;
             resultadoDiv.innerHTML = resultHTML;
-            resultadoDiv.style.display = 'block';
-
+            resultadoDiv.classList.add('show');
 
             if (isClassic) {
-                resultadoDiv.dataset.volumenBasal = volumenTotal24hDisplay.toFixed(1);
-                resultadoDiv.dataset.ritmoBasal = ritmoInfusionDisplay.toFixed(1);
+                resultadoDiv.dataset.volumenBasal = volDisplayRounded;
+                resultadoDiv.dataset.ritmoBasal = ritmoDisplayRounded;
                 resultadoDiv.dataset.fraccionBasalDesc = fraccionDesc;
             } else {
-                pautaFinalDataset.volumenBasal = volumenTotal24hDisplay.toFixed(1);
-                pautaFinalDataset.ritmoBasal = ritmoInfusionDisplay.toFixed(1);
+                pautaFinalDataset.volumenBasal = volDisplayRounded;
+                pautaFinalDataset.ritmoBasal = ritmoDisplayRounded;
             }
+            updatePautaFinal();
         }
 
+        function closeWarningModal() {
+            document.getElementById('deficit-warning-modal').style.display = 'none';
+        }
+
+        function closeKWarningModal() {
+             document.getElementById('potassium-warning-modal').style.display = 'none';
+        }
 
         function calcularRapida() {
+            document.getElementById('deficit-warning-modal').style.display = 'none'; // Reset modal
             const peso = parseFloat(document.getElementById('peso').value);
             const tiempoRehidratacionHoras = parseInt(document.getElementById('tiempoRehidratacionRapida').value);
             const resultadoDiv = document.getElementById('resultado-rapida');
             const pautaFinalDataset = document.getElementById('pauta-final').dataset;
 
-
             if (isNaN(peso) || peso <= 0) {
                 resultadoDiv.innerHTML = '<strong style="color: red;">Por favor, ingrese un peso válido.</strong>';
-                resultadoDiv.style.display = 'block';
+                resultadoDiv.classList.add('show');
                 delete pautaFinalDataset.volumenRapida;
                 delete pautaFinalDataset.ritmoRapida;
                 delete pautaFinalDataset.tiempoRehidratacionRapidaDesc;
+                updatePautaFinal();
                 return;
             }
-
 
             let ritmoInfusionBase = peso * 20;
             let ritmoInfusionDisplay = ritmoInfusionBase;
             let maxRitmoReached = false;
-
 
             if (ritmoInfusionBase > 700) {
                 ritmoInfusionDisplay = 700;
                 maxRitmoReached = true;
             }
 
-
             let volumenTotalInfusion = ritmoInfusionDisplay * tiempoRehidratacionHoras;
 
+            const ritmoDisplayRounded = Math.round(ritmoInfusionDisplay);
+            const volTotalRounded = Math.round(volumenTotalInfusion);
+            const horasTexto = tiempoRehidratacionHoras === 1 ? 'hora' : 'horas';
+
+            const deficitDiv = document.getElementById('resultado-deficit-rapida');
+            const deficitCalculado = deficitDiv.dataset.deficitCalculado ? parseFloat(deficitDiv.dataset.deficitCalculado) : null;
+            
+            if(deficitCalculado !== null && volTotalRounded > deficitCalculado) {
+                 document.getElementById('deficit-warning-modal').style.display = 'flex';
+            }
 
             let resultHTML = `
                 <strong>Rehidratación Intravenosa Rápida:</strong><br>
-                Ritmo de infusión: ${ritmoInfusionDisplay.toFixed(1)} ml/h ${maxRitmoReached ? '(Máx. 700 ml/h alcanzado)' : '(20 ml/kg/h)'}<br>
-                Volumen total a infundir en ${tiempoRehidratacionHoras} hora(s): ${volumenTotalInfusion.toFixed(1)} ml
+                Ritmo de infusión: ${ritmoDisplayRounded} ml/h ${maxRitmoReached ? '(Máx. 700 ml/h alcanzado)' : '(20 ml/kg/h)'}<br>
+                Volumen total a infundir en ${tiempoRehidratacionHoras} ${horasTexto}: ${volTotalRounded} ml
             `;
             resultadoDiv.innerHTML = resultHTML;
-            resultadoDiv.style.display = 'block';
-            pautaFinalDataset.volumenRapida = volumenTotalInfusion.toFixed(1);
-            pautaFinalDataset.ritmoRapida = ritmoInfusionDisplay.toFixed(1);
-            pautaFinalDataset.tiempoRehidratacionRapidaDesc = `${tiempoRehidratacionHoras} hora(s)`;
+            resultadoDiv.classList.add('show');
+            pautaFinalDataset.volumenRapida = volTotalRounded;
+            pautaFinalDataset.ritmoRapida = ritmoDisplayRounded;
+            pautaFinalDataset.tiempoRehidratacionRapidaDesc = `${tiempoRehidratacionHoras} ${horasTexto}`;
+            updatePautaFinal();
         }
-
 
         function calcularClasica() {
             const peso = parseFloat(document.getElementById('peso').value);
-            const porcentajeDeshidratacion = parseFloat(document.getElementById('porcentajeDeshidratacion').value);
             const perdidasMantenidasRadio = document.querySelector('input[name="perdidasMantenidas"]:checked').value;
             const perdidasMantenidasValorInput = document.getElementById('perdidasMantenidasValor');
             const perdidasMantenidasValor = parseFloat(perdidasMantenidasValorInput.value);
             const correccionDeficitRadio = document.querySelector('input[name="correccionDeficit"]:checked').value;
-
 
             const expansionAdministrada = document.querySelector('input[name="expansionVolumen"]:checked').value === 'si';
             const volumenExpansionMlInput = document.getElementById('volumenExpansionMl');
@@ -1341,15 +1516,38 @@
                 volumenExpansion = parseFloat(volumenExpansionMlInput.value);
                 if (isNaN(volumenExpansion) || volumenExpansion < 0) {
                      document.getElementById('resultado-clasica').innerHTML = '<strong style="color: red;">Por favor, ingrese un volumen de expansión válido.</strong>';
-                     document.getElementById('resultado-clasica').style.display = 'block';
+                     document.getElementById('resultado-clasica').classList.add('show');
+                     updatePautaFinal();
                     return;
                 }
             }
 
-
             const resultadoDiv = document.getElementById('resultado-clasica');
             const basalesClasicaDiv = document.getElementById('basales-clasica-display');
             const pautaFinalDataset = document.getElementById('pauta-final').dataset;
+            
+            let deficitLiquidos = 0;
+            const isPesoCuantificado = document.querySelector('input[name="pesoCuantificadoClasica"]:checked').value === 'si';
+
+            if (isPesoCuantificado) {
+                const pesoPerdido = parseFloat(document.getElementById('pesoPerdidoClasica').value);
+                if (isNaN(pesoPerdido) || pesoPerdido <= 0) {
+                    resultadoDiv.innerHTML = '<strong style="color: red;">Por favor, ingrese un peso perdido válido para el cálculo de déficit.</strong>';
+                    resultadoDiv.classList.add('show');
+                    updatePautaFinal();
+                    return;
+                }
+                deficitLiquidos = pesoPerdido * 1000;
+            } else {
+                 const porcentajeDeshidratacion = parseFloat(document.getElementById('porcentajeDeshidratacion').value);
+                 if (isNaN(porcentajeDeshidratacion) || porcentajeDeshidratacion < 0) {
+                    resultadoDiv.innerHTML = '<strong style="color: red;">Por favor, ingrese un porcentaje de deshidratación válido para el cálculo de déficit.</strong>';
+                    resultadoDiv.classList.add('show');
+                    updatePautaFinal();
+                    return;
+                }
+                deficitLiquidos = porcentajeDeshidratacion * 10 * peso;
+            }
 
 
             calcularBasales(true);
@@ -1357,43 +1555,41 @@
             const ritmoBasal = parseFloat(basalesClasicaDiv.dataset.ritmoBasal);
             const fraccionBasalDescClasica = basalesClasicaDiv.dataset.fraccionBasalDesc || "Necesidades Basales Completas";
 
-
-            if (isNaN(peso) || peso <= 0 || isNaN(porcentajeDeshidratacion) || porcentajeDeshidratacion < 0) {
-                resultadoDiv.innerHTML = '<strong style="color: red;">Por favor, complete los datos del paciente e ingrese un porcentaje de deshidratación válido.</strong>';
-                resultadoDiv.style.display = 'block';
+            if (isNaN(peso) || peso <= 0) {
+                resultadoDiv.innerHTML = '<strong style="color: red;">Por favor, complete los datos del paciente.</strong>';
+                resultadoDiv.classList.add('show');
                 delete pautaFinalDataset.volumenClasica;
                 delete pautaFinalDataset.ritmoClasica;
+                updatePautaFinal();
                 return;
             }
             if (isNaN(volumenBasal) || isNaN(ritmoBasal)) {
                 resultadoDiv.innerHTML = '<strong style="color: red;">Error al obtener necesidades basales. Por favor, asegúrese de que el peso es correcto y vuelva a seleccionar la modalidad "Clásica".</strong>';
-                resultadoDiv.style.display = 'block';
+                resultadoDiv.classList.add('show');
                 delete pautaFinalDataset.volumenClasica;
                 delete pautaFinalDataset.ritmoClasica;
+                updatePautaFinal();
                 return;
             }
-
 
             let perdidasMantenidasCalculated = 0;
             if (perdidasMantenidasRadio === 'quantified') {
                 if (isNaN(perdidasMantenidasValor) || perdidasMantenidasValor < 0) {
                     resultadoDiv.innerHTML = '<strong style="color: red;">Por favor, ingrese un valor válido para las pérdidas mantenidas cuantificadas.</strong>';
-                    resultadoDiv.style.display = 'block';
+                    resultadoDiv.classList.add('show');
                     delete pautaFinalDataset.volumenClasica;
                     delete pautaFinalDataset.ritmoClasica;
+                    updatePautaFinal();
                     return;
                 }
                 perdidasMantenidasCalculated = perdidasMantenidasValor * peso;
             }
 
-
-            const deficitLiquidos = porcentajeDeshidratacion * 10 * peso;
             let correccionFactor;
             if (correccionDeficitRadio === '1') correccionFactor = 1;
             else if (correccionDeficitRadio === '2/3') correccionFactor = 2 / 3;
             else if (correccionDeficitRadio === '1/3') correccionFactor = 1 / 3;
             else correccionFactor = 1;
-
 
             const deficitToReplace = deficitLiquidos * correccionFactor;
             let volumenTotal24h = volumenBasal + deficitToReplace + perdidasMantenidasCalculated;
@@ -1402,29 +1598,29 @@
                 if (volumenTotal24h < 0) volumenTotal24h = 0;
             }
 
-
             const ritmoInfusion24h = volumenTotal24h > 0 ? volumenTotal24h / 24 : 0;
-
+            const volTotalRounded = Math.round(volumenTotal24h);
+            const ritmoInfusionRounded = Math.round(ritmoInfusion24h);
 
             let resultHTML = `
                 <strong>Rehidratación Intravenosa Clásica:</strong><br>
-                Necesidades Basales (${fraccionBasalDescClasica}): ${volumenBasal.toFixed(1)} ml/24h (${ritmoBasal.toFixed(1)} ml/h)<br>
-                Déficit de líquidos calculado: ${deficitLiquidos.toFixed(1)} ml<br>
-                Pérdidas mantenidas estimadas: ${perdidasMantenidasCalculated.toFixed(1)} ml/día<br>`;
+                Necesidades Basales (${fraccionBasalDescClasica}): ${Math.round(volumenBasal)} ml/24h (${Math.round(ritmoBasal)} ml/h)<br>
+                Déficit de líquidos calculado: ${formatDecimal(deficitLiquidos, 0)} ml<br>
+                Pérdidas mantenidas estimadas: ${formatDecimal(perdidasMantenidasCalculated, 0)} ml/día<br>`;
             if (volumenExpansion > 0) {
-                 resultHTML += `Volumen de expansión previo restado: ${volumenExpansion.toFixed(1)} ml<br>`;
+                 resultHTML += `Volumen de expansión o RIV rápida previa restado: ${formatDecimal(volumenExpansion, 0)} ml<br>`;
             }
-            resultHTML += `Volumen total a reponer en 24 horas: ${volumenTotal24h.toFixed(1)} ml<br>
-                Ritmo de infusión en 24 horas: ${ritmoInfusion24h.toFixed(1)} ml/h
+            resultHTML += `Volumen total a reponer en 24 horas: ${volTotalRounded} ml<br>
+                Ritmo de infusión en 24 horas: ${ritmoInfusionRounded} ml/h
             `;
             resultadoDiv.innerHTML = resultHTML;
-            resultadoDiv.style.display = 'block';
-            pautaFinalDataset.volumenClasica = volumenTotal24h.toFixed(1);
-            pautaFinalDataset.ritmoClasica = ritmoInfusion24h.toFixed(1);
-            resultadoDiv.dataset.ritmoClasica = ritmoInfusion24h.toFixed(1);
+            resultadoDiv.classList.add('show');
+            pautaFinalDataset.volumenClasica = volTotalRounded;
+            pautaFinalDataset.ritmoClasica = ritmoInfusionRounded;
+            resultadoDiv.dataset.ritmoClasica = ritmoInfusionRounded;
             pautaFinalDataset.fraccionBasalDescClasica = fraccionBasalDescClasica;
+            updatePautaFinal();
         }
-
 
         function calcularGlucosa() {
             const peso = parseFloat(document.getElementById('peso').value);
@@ -1434,18 +1630,14 @@
             const unidadGlucosa = document.querySelector('input[name="unidadGlucosa"]:checked').value;
             const sueroBaseTieneGlucosa = document.querySelector('input[name="sueroBaseConGlucosa"]:checked').value === 'true';
 
-
             const resultadoDiv = document.getElementById('resultado-glucosa');
             const pautaFinalData = document.getElementById('pauta-final').dataset;
-
 
             delete pautaFinalData.glucosaGR50;
             delete pautaFinalData.glucosaAporte;
             delete pautaFinalData.glucosaUnidad;
             delete pautaFinalData.glucosaMensajeAdicional;
             delete pautaFinalData.glucosaConcentracionDeseada;
-
-
 
 
             let ritmoInfusion = 0;
@@ -1463,18 +1655,18 @@
                 }
             }
 
-
             if (isNaN(peso) || peso <= 0 || isNaN(volumenBolsa) || volumenBolsa <= 0 ) {
                 resultadoDiv.innerHTML = '<strong style="color: red;">Por favor, complete los datos del paciente.</strong>';
-                resultadoDiv.style.display = 'block';
+                resultadoDiv.classList.add('show');
+                updatePautaFinal();
                 return;
             }
              if (ritmoInfusion <= 0 || isNaN(ritmoInfusion)) {
                 resultadoDiv.innerHTML = '<strong style="color: red;">Calcule primero la modalidad de sueroterapia para obtener el ritmo de infusión.</strong>';
-                resultadoDiv.style.display = 'block';
+                resultadoDiv.classList.add('show');
+                updatePautaFinal();
                 return;
             }
-
 
             const C_BASE_GLUCOSA = 5.0; 
             const C_GR50 = 50.0;       
@@ -1484,19 +1676,16 @@
             let concentracionFinalMostrada = concentracionParaAportes;
 
 
-
-
             if (concentracionDeseada !== null) {
                  if (isNaN(concentracionDeseada) || concentracionDeseada < 0) {
                     resultadoDiv.innerHTML = '<strong style="color: red;">Ingrese una concentración de glucosa deseada válida.</strong>';
-                    resultadoDiv.style.display = 'block';
+                    resultadoDiv.classList.add('show');
+                    updatePautaFinal();
                     return;
                  }
                 concentracionParaAportes = concentracionDeseada;
                 concentracionFinalMostrada = concentracionDeseada;
-                pautaFinalData.glucosaConcentracionDeseada = concentracionDeseada.toFixed(1);
-
-
+                pautaFinalData.glucosaConcentracionDeseada = formatDecimal(concentracionDeseada);
 
 
                 if (sueroBaseTieneGlucosa) {
@@ -1504,7 +1693,7 @@
                         volumenGR50 = 0;
                         mensajeAdicional = `El suero base ya tiene ${C_BASE_GLUCOSA}% de glucosa.`;
                         concentracionFinalMostrada = C_BASE_GLUCOSA; 
-                        pautaFinalData.glucosaConcentracionDeseada = C_BASE_GLUCOSA.toFixed(1);
+                        pautaFinalData.glucosaConcentracionDeseada = formatDecimal(C_BASE_GLUCOSA);
                         if (concentracionDeseada < C_BASE_GLUCOSA) {
                              mensajeAdicional += ` No se puede reducir añadiendo GR50.`;
                         } else {
@@ -1519,7 +1708,7 @@
                     } else {
                         volumenGR50 = 0;
                          concentracionFinalMostrada = 0;
-                         pautaFinalData.glucosaConcentracionDeseada = "0.0";
+                         pautaFinalData.glucosaConcentracionDeseada = "0";
                     }
                 }
             } else { 
@@ -1528,57 +1717,53 @@
                     mensajeAdicional = "Calculando aportes con glucosa base al 5%.";
                     concentracionParaAportes = C_BASE_GLUCOSA;
                     concentracionFinalMostrada = C_BASE_GLUCOSA;
-                    pautaFinalData.glucosaConcentracionDeseada = C_BASE_GLUCOSA.toFixed(1);
+                    pautaFinalData.glucosaConcentracionDeseada = formatDecimal(C_BASE_GLUCOSA);
                 } else {
                      resultadoDiv.innerHTML = '<strong>Cálculo de Glucosa:</strong><br>No se ha especificado concentración deseada y el suero base no tiene glucosa. No hay aportes de glucosa.';
-                    resultadoDiv.style.display = 'block';
+                    resultadoDiv.classList.add('show');
                     pautaFinalData.glucosaMensajeAdicional = 'Sin aportes de glucosa.';
+                    updatePautaFinal();
                     return;
                 }
             }
-
 
             const aporteMgKgMin = (concentracionParaAportes * ritmoInfusion) / (peso * 6);
             let aporteGlucosaCalculado = (unidadGlucosa === 'mg/kg/min') ? aporteMgKgMin : aporteMgKgMin * 0.06; 
             let aporteGlucosaUnit = (unidadGlucosa === 'mg/kg/min') ? 'mg/kg/min' : 'g/kg/h';
 
-
             let resultHTML = '<strong>Cálculo de Glucosa:</strong><br>';
             if (volumenGR50 > 0) {
-                resultHTML += `Añadir ${volumenGR50.toFixed(1)} ml de GR50 a cada ${volumenBolsa.toFixed(0)} ml del suero pautado.<br>`;
+                resultHTML += `Añadir ${formatDecimal(volumenGR50)} ml de GR50 a cada ${formatDecimal(volumenBolsa, 0)} ml del suero pautado.<br>`;
             } else if (mensajeAdicional && concentracionDeseada !== null) { 
                 resultHTML += `${mensajeAdicional}<br>`;
             }
              if (concentracionDeseada !== null || sueroBaseTieneGlucosa) { 
-                resultHTML += `Concentración de glucosa: ${concentracionFinalMostrada.toFixed(1)} %<br>`;
+                resultHTML += `Concentración de glucosa: ${formatDecimal(concentracionFinalMostrada)} %<br>`;
             }
-            resultHTML += `Aportes de Glucosa: ${aporteGlucosaCalculado.toFixed(1)} ${aporteGlucosaUnit}`;
-
+            resultHTML += `Aportes de Glucosa: ${formatDecimal(aporteGlucosaCalculado)} ${aporteGlucosaUnit}`;
 
             resultadoDiv.innerHTML = resultHTML;
-            resultadoDiv.style.display = 'block';
+            resultadoDiv.classList.add('show');
 
-
-            pautaFinalData.glucosaGR50 = volumenGR50 > 0 ? volumenGR50.toFixed(1) : '0';
-            pautaFinalData.glucosaAporte = aporteGlucosaCalculado.toFixed(1);
+            pautaFinalData.glucosaGR50 = formatDecimal(volumenGR50);
+            pautaFinalData.glucosaAporte = formatDecimal(aporteGlucosaCalculado);
             pautaFinalData.glucosaUnidad = aporteGlucosaUnit;
             if (mensajeAdicional && volumenGR50 <= 0 && concentracionDeseada !== null) {
                  pautaFinalData.glucosaMensajeAdicional = mensajeAdicional;
             }
+            updatePautaFinal();
         }
 
-
         function calcularPotasio() {
+            document.getElementById('potassium-warning-modal').style.display = 'none'; // Reset modal
             const peso = parseFloat(document.getElementById('peso').value);
             const volumenBolsa = getSelectedVolumeBolsa();
             const sueroBaseConPotasioValue = document.querySelector('input[name="sueroBaseConPotasio"]:checked').value;
             const concentracionDeseadaValue = document.querySelector('input[name="concentracionPotasio"]:checked').value;
             const formaAdministracion = document.getElementById('formaPotasio').value; 
 
-
             const resultadoDiv = document.getElementById('resultado-potasio');
             const pautaFinalData = document.getElementById('pauta-final').dataset;
-
 
             delete pautaFinalData.potasioVolumenToAdd;
             delete pautaFinalData.potasioForma;
@@ -1590,14 +1775,12 @@
             delete pautaFinalData.potasioConcentracionDeseada;
 
 
-
-
             if (isNaN(peso) || peso <= 0 || isNaN(volumenBolsa) || volumenBolsa <= 0) {
                 resultadoDiv.innerHTML = '<strong style="color: red;">Por favor, complete los datos del paciente.</strong>';
-                resultadoDiv.style.display = 'block';
+                resultadoDiv.classList.add('show');
+                updatePautaFinal();
                 return;
             }
-
 
             let ritmoInfusion = 0;
             const modalidad = document.getElementById('modalidad').value;
@@ -1609,7 +1792,6 @@
                 else if (pautaFinalData.ritmoClasica) ritmoInfusion = parseFloat(pautaFinalData.ritmoClasica);
             }
 
-
             const C_BASE_POTASIO_NB = 20.0; 
             const C_BASE_POTASIO_RL = 4.0;  
             let concentracionPotasioBase = 0;
@@ -1619,13 +1801,11 @@
                 concentracionPotasioBase = C_BASE_POTASIO_RL;
             }
 
-
             let volumenToAdd = 0;
             let concentracionFinalParaCalculoAportes = 0;
             let concentracionDeseadaMostrada = 0;
             let mensajeResultadoPotasio = '<strong>Cálculo de Potasio:</strong><br>';
             let aporteCalculado = null;
-
 
             if (concentracionDeseadaValue === 'none') {
                 concentracionFinalParaCalculoAportes = concentracionPotasioBase;
@@ -1636,59 +1816,56 @@
                 } else {
                     mensajeResultadoPotasio += `<br>`;
                 }
-                 pautaFinalData.potasioConcentracionDeseada = concentracionDeseadaMostrada.toFixed(0);
+                 pautaFinalData.potasioConcentracionDeseada = formatDecimal(concentracionDeseadaMostrada, 0);
             } else {
                 const concentracionDeseadaNum = parseFloat(concentracionDeseadaValue);
                 concentracionFinalParaCalculoAportes = concentracionDeseadaNum;
                 concentracionDeseadaMostrada = concentracionDeseadaNum;
-                pautaFinalData.potasioConcentracionDeseada = concentracionDeseadaNum.toFixed(0);
-
-
+                pautaFinalData.potasioConcentracionDeseada = formatDecimal(concentracionDeseadaNum, 0);
 
 
                 if (concentracionDeseadaNum < concentracionPotasioBase) {
                     mensajeResultadoPotasio += `La concentración deseada (${concentracionDeseadaNum} mEq/L) es inferior a la del suero base (${concentracionPotasioBase.toFixed(0)} mEq/L). No se añadirá potasio. Se mantendrá la concentración base.<br>`;
                     concentracionFinalParaCalculoAportes = concentracionPotasioBase;
                     concentracionDeseadaMostrada = concentracionPotasioBase; 
-                     pautaFinalData.potasioConcentracionDeseada = concentracionPotasioBase.toFixed(0);
+                     pautaFinalData.potasioConcentracionDeseada = formatDecimal(concentracionPotasioBase, 0);
                 } else if (concentracionDeseadaNum === concentracionPotasioBase) {
                     mensajeResultadoPotasio += `La concentración deseada (${concentracionDeseadaNum} mEq/L) es igual a la del suero base. No se necesita añadir potasio.<br>`;
                 } else {
                     volumenToAdd = ((concentracionDeseadaNum - concentracionPotasioBase) / 1000) * volumenBolsa;
-                    mensajeResultadoPotasio += `Añadir ${volumenToAdd.toFixed(1)} ml de ${formaAdministracion}.<br>`;
+                    mensajeResultadoPotasio += `Añadir ${formatDecimal(volumenToAdd)} ml de ${formaAdministracion}.<br>`;
                 }
             }
             
             if (concentracionDeseadaValue !== 'none' || sueroBaseConPotasioValue !== 'false') {
-                 mensajeResultadoPotasio += `Concentración de potasio: ${concentracionDeseadaMostrada.toFixed(0)} mEq/L<br>`;
+                 mensajeResultadoPotasio += `Concentración de potasio: ${formatDecimal(concentracionDeseadaMostrada, 0)} mEq/L<br>`;
             }
-
-
 
 
             if (ritmoInfusion > 0 && peso > 0 && concentracionFinalParaCalculoAportes >= 0) {
                 aporteCalculado = (concentracionFinalParaCalculoAportes / 1000) * ritmoInfusion / peso;
-                mensajeResultadoPotasio += `Aporte de potasio: ${aporteCalculado.toFixed(2)} mEq/kg/h`;
-                pautaFinalData.potasioAporte_mEq_kg_h = aporteCalculado.toFixed(2);
+                mensajeResultadoPotasio += `Aporte de potasio: ${formatDecimal(aporteCalculado, 2)} mEq/kg/h`;
+                pautaFinalData.potasioAporte_mEq_kg_h = formatDecimal(aporteCalculado, 2);
+                 if(aporteCalculado > 0.3) {
+                    document.getElementById('potassium-warning-modal').style.display = 'flex';
+                }
             } else if (ritmoInfusion <= 0 && concentracionFinalParaCalculoAportes > 0) {
                  mensajeResultadoPotasio += "<br>Calcule primero la modalidad de sueroterapia para determinar el aporte de potasio.";
             } 
 
-
             resultadoDiv.innerHTML = mensajeResultadoPotasio;
-            resultadoDiv.style.display = 'block';
+            resultadoDiv.classList.add('show');
 
-
-            pautaFinalData.potasioVolumenToAdd = volumenToAdd.toFixed(1);
+            pautaFinalData.potasioVolumenToAdd = formatDecimal(volumenToAdd);
             pautaFinalData.potasioForma = formaAdministracion;
-            pautaFinalData.potasioConcentracionFinalSuero = concentracionFinalParaCalculoAportes.toFixed(0); 
+            pautaFinalData.potasioConcentracionFinalSuero = formatDecimal(concentracionFinalParaCalculoAportes, 0); 
             pautaFinalData.potasioDecision = concentracionDeseadaValue;
             pautaFinalData.sueroBaseTienePotasio = sueroBaseConPotasioValue;
             if (volumenToAdd <= 0 && concentracionDeseadaValue !== 'none' && !(parseFloat(concentracionDeseadaValue) === concentracionPotasioBase)) { 
                  pautaFinalData.potasioMensaje = mensajeResultadoPotasio.split('<br>')[1] || mensajeResultadoPotasio.split('<br>')[0];
             }
+            updatePautaFinal();
         }
-
 
         function calcularSodio() {
             const peso = parseFloat(document.getElementById('peso').value);
@@ -1696,25 +1873,21 @@
             const concentracionDeseada = parseFloat(document.getElementById('concentracionSodioDeseada').value);
             const Cbase = parseFloat(document.getElementById('concentracionSodioBase').value); 
 
-
             const resultadoDiv = document.getElementById('resultado-sodio');
             const notaSodioDiv = document.getElementById('nota-sodio-resultados'); 
             const pautaFinalData = document.getElementById('pauta-final').dataset;
-
 
             delete pautaFinalData.sodioVolumenAdd; delete pautaFinalData.sodioNota; delete pautaFinalData.sodioBaseDesc; delete pautaFinalData.sodioConcentracionBase;
             delete pautaFinalData.sodioConcentracionDeseada;
 
 
-
-
             if (isNaN(peso) || peso <= 0 || isNaN(volumenBolsa) || volumenBolsa <= 0 || isNaN(concentracionDeseada) || concentracionDeseada < 0 || isNaN(Cbase) || Cbase < 0) {
                 resultadoDiv.innerHTML = '<strong style="color: red;">Por favor, complete todos los datos de sodio (peso, vol. bolsa, Na deseado, Na base).</strong>';
-                resultadoDiv.style.display = 'block';
-                if (notaSodioDiv) notaSodioDiv.style.display = 'none'; 
+                resultadoDiv.classList.add('show');
+                if (notaSodioDiv) notaSodioDiv.style.display = 'none';
+                updatePautaFinal();
                 return;
             }
-
 
             const CNaCl20 = 3400; 
             const Vbase_calculo = volumenBolsa;
@@ -1725,37 +1898,33 @@
             let concentracionFinalMostradaSodio = CfinalDeseada;
 
 
-
-
             if (CfinalDeseada <= Cbase) {
-                const nota = `La concentración deseada (${CfinalDeseada.toFixed(1)} mEq/L) es igual o inferior a la del suero base (${Cbase.toFixed(0)} mEq/L). No se requiere añadir Suero Salino al 20%.`;
+                const nota = `La concentración deseada (${formatDecimal(CfinalDeseada)}) es igual o inferior a la del suero base (${formatDecimal(Cbase, 0)}). No se requiere añadir Suero Salino al 20%.`;
                 resultHTML += `<strong style="color: orange;">${nota}</strong><br>`;
                 pautaFinalData.sodioVolumenAdd = '0'; pautaFinalData.sodioNota = nota; 
-                pautaFinalData.sodioConcentracionBase = Cbase.toFixed(0);
+                pautaFinalData.sodioConcentracionBase = formatDecimal(Cbase, 0);
                 concentracionFinalMostradaSodio = Cbase; 
             } else if (CfinalDeseada >= CNaCl20) {
-                 const nota = `Concentración deseada (${CfinalDeseada.toFixed(1)} mEq/L) inalcanzable con Suero Salino al 20% (${CNaCl20.toFixed(0)} mEq/L).`;
+                 const nota = `Concentración deseada (${formatDecimal(CfinalDeseada)}) inalcanzable con Suero Salino al 20% (${formatDecimal(CNaCl20, 0)}).`;
                 resultHTML += `<strong style="color: red;">${nota}</strong><br>`;
                 pautaFinalData.sodioVolumenAdd = 'Error'; pautaFinalData.sodioNota = nota;
-                 pautaFinalData.sodioConcentracionBase = Cbase.toFixed(0);
+                 pautaFinalData.sodioConcentracionBase = formatDecimal(Cbase, 0);
             } else {
                 volumenNaCl20 = Vbase_calculo * (CfinalDeseada - Cbase) / (CNaCl20 - CfinalDeseada);
-                resultHTML += `Añadir ${volumenNaCl20.toFixed(1)} ml de Suero Salino al 20% a cada ${volumenBolsa.toFixed(0)} ml del suero base.<br>`;
-                pautaFinalData.sodioVolumenAdd = volumenNaCl20.toFixed(1); pautaFinalData.sodioNota = ''; 
-                pautaFinalData.sodioConcentracionBase = Cbase.toFixed(0);
+                resultHTML += `Añadir ${formatDecimal(volumenNaCl20)} ml de Suero Salino al 20% a cada ${formatDecimal(volumenBolsa, 0)} ml del suero base.<br>`;
+                pautaFinalData.sodioVolumenAdd = formatDecimal(volumenNaCl20); pautaFinalData.sodioNota = ''; 
+                pautaFinalData.sodioConcentracionBase = formatDecimal(Cbase, 0);
             }
             
-            resultHTML += `Concentración de sodio: ${concentracionFinalMostradaSodio.toFixed(1)} mEq/L`;
-            pautaFinalData.sodioConcentracionDeseada = concentracionFinalMostradaSodio.toFixed(1);
-
-
+            resultHTML += `Concentración de sodio: ${formatDecimal(concentracionFinalMostradaSodio)} mEq/L`;
+            pautaFinalData.sodioConcentracionDeseada = formatDecimal(concentracionFinalMostradaSodio);
 
 
             resultadoDiv.innerHTML = resultHTML;
-            resultadoDiv.style.display = 'block';
-            if (notaSodioDiv) notaSodioDiv.style.display = 'block'; 
+            resultadoDiv.classList.add('show');
+            if (notaSodioDiv) notaSodioDiv.style.display = 'block';
+            updatePautaFinal();
         }
-
 
         function calcularAcidosis() {
             const peso = parseFloat(document.getElementById('peso').value);
@@ -1765,7 +1934,6 @@
             const resultadoDiv = document.getElementById('resultado-acidosis');
             const pautaFinalData = document.getElementById('pauta-final').dataset;
 
-
             delete pautaFinalData.acidosisVolumenNaHCO3;
             delete pautaFinalData.acidosisCorreccionFactor;
             delete pautaFinalData.acidosisDeficitBases;
@@ -1774,18 +1942,15 @@
             delete pautaFinalData.acidosisFractionText;
 
 
-
-
             if (isNaN(peso) || peso <= 0 || excesoBasesInput.trim() === '') {
                 resultadoDiv.innerHTML = '<strong style="color: red;">Por favor, complete datos del paciente y exceso de bases.</strong>';
-                resultadoDiv.style.display = 'block'; return;
+                resultadoDiv.classList.add('show'); return;
             }
             const excesoBases = parseFloat(excesoBasesInput);
             if (isNaN(excesoBases)) {
                  resultadoDiv.innerHTML = '<strong style="color: red;">Valor de exceso de bases no válido.</strong>';
-                resultadoDiv.style.display = 'block'; return;
+                 resultadoDiv.classList.add('show'); return;
             }
-
 
             const deficitBases = Math.abs(excesoBases * peso * 0.3);
             let correccionFactorValue = (correccionAcidosis === '1/3') ? 1/3 : 1/2;
@@ -1793,14 +1958,12 @@
             const deficitToReplace = deficitBases * correccionFactorValue;
             const volumenTotalNaHCO3 = deficitToReplace; 
 
-
             const warningText = "<span style='color: red; font-weight: bold;'>No copie este apartado, elija la manera de reponer dicho déficit.</span><br>";
             let messageForCurrentResultDiv = "";
             let fullMessageForPauta = "";
 
-
             if (deficitToReplace > 0) {
-                const optionsText = `Distribuir ${volumenTotalNaHCO3.toFixed(1)} ml de bicarbonato sódico 1M durante las primeras 1-2 horas de infusión del suero pautado, o considerar la sueroterapia con bicarbonato 1/6M o Ringer lactato.`;
+                const optionsText = `Distribuir ${formatDecimal(volumenTotalNaHCO3)} ml de bicarbonato sódico 1M durante las primeras 1-2 horas de infusión del suero pautado, o considerar la sueroterapia con bicarbonato 1/6M o Ringer lactato.`;
                 messageForCurrentResultDiv = `${warningText}${optionsText}`;
                 fullMessageForPauta = `${warningText}${optionsText}`;
             } else {
@@ -1808,67 +1971,56 @@
                 fullMessageForPauta = "No se requiere corrección de acidosis o el déficit a reponer es cero.";
             }
 
-
             resultadoDiv.innerHTML = `<strong>Cálculo de Corrección de Acidosis:</strong><br>
-                Déficit de bases calculado: ${deficitBases.toFixed(1)} mEq<br>
-                Déficit a reponer (${fractionText}): ${deficitToReplace.toFixed(1)} mEq<br>
+                Déficit de bases calculado: ${formatDecimal(deficitBases)} mEq<br>
+                Déficit a reponer (${fractionText}): ${formatDecimal(deficitToReplace)} mEq<br>
                 ${messageForCurrentResultDiv}`;
-            resultadoDiv.style.display = 'block';
+            resultadoDiv.classList.add('show');
 
-
-            pautaFinalData.acidosisVolumenNaHCO3 = volumenTotalNaHCO3.toFixed(1);
+            pautaFinalData.acidosisVolumenNaHCO3 = formatDecimal(volumenTotalNaHCO3);
             pautaFinalData.acidosisCorreccionFactor = correccionAcidosis; 
             pautaFinalData.acidosisFractionText = fractionText; 
-            pautaFinalData.acidosisDeficitBases = deficitBases.toFixed(1);
-            pautaFinalData.acidosisDeficitToReplace = deficitToReplace.toFixed(1);
+            pautaFinalData.acidosisDeficitBases = formatDecimal(deficitBases);
+            pautaFinalData.acidosisDeficitToReplace = formatDecimal(deficitToReplace);
             pautaFinalData.acidosisDistribucionMsg = fullMessageForPauta;
+            updatePautaFinal();
         }
 
 
-
-
-        function generarPautaFinal() {
+        function updatePautaFinal() {
             try {
                 const pautaFinalDiv = document.getElementById('pauta-final');
-                const pautaFinalNotaDiv = document.getElementById('pauta-final-nota');
                 const pautaFinalData = pautaFinalDiv.dataset;
-                let finalPautaHTML = '<strong>PAUTA FINAL DE SUEROTERAPIA:</strong><br><br>';
+                const copyContainer = document.getElementById('pauta-final-copy-container');
+
+                let finalPautaHTML = '';
                 const modalidad = document.getElementById('modalidad').value;
                 const volumenBolsa = getSelectedVolumeBolsa();
                 let modalityCalculated = false;
 
-
                 if (modalidad === 'basales' && pautaFinalData.volumenBasal && pautaFinalData.ritmoBasal) {
-                    const fraccionDesc = pautaFinalData.fraccionBasalDesc || "Necesidades Basales Completas";
-                    finalPautaHTML += `<strong>Modalidad: Necesidades Basales (${fraccionDesc})</strong><br>
+                    const fraccionDesc = pautaFinalData.fraccionBasalDesc || "Necesidades basales completas";
+                    finalPautaHTML += `<strong>Necesidades Basales (${fraccionDesc})</strong><br>
                                        Volumen total en 24h: ${pautaFinalData.volumenBasal} ml<br>
                                        Ritmo de infusión: ${pautaFinalData.ritmoBasal} ml/h<br><br>`;
                     modalityCalculated = true;
                 } else if (modalidad === 'rapida' && pautaFinalData.volumenRapida && pautaFinalData.ritmoRapida) {
                     const tiempoDesc = pautaFinalData.tiempoRehidratacionRapidaDesc || "2 horas";
-                    finalPautaHTML += `<strong>Modalidad: Rehidratación Rápida</strong><br>
+                    finalPautaHTML += `<strong>Rehidratación Rápida</strong><br>
                                        Ritmo de infusión: ${pautaFinalData.ritmoRapida} ml/h<br>
                                        Volumen total a infundir en ${tiempoDesc}: ${pautaFinalData.volumenRapida} ml<br><br>`;
                     modalityCalculated = true;
                 } else if (modalidad === 'clasica' && pautaFinalData.volumenClasica && pautaFinalData.ritmoClasica) {
-                    finalPautaHTML += `<strong>Modalidad: Rehidratación Clásica</strong><br>
+                    finalPautaHTML += `<strong>Rehidratación Clásica</strong><br>
                                        Volumen total a reponer en 24h: ${pautaFinalData.volumenClasica} ml<br>
                                        Ritmo de infusión en 24h: ${pautaFinalData.ritmoClasica} ml/h<br><br>`;
                     modalityCalculated = true;
                 }
 
-
-                if (!modalityCalculated && modalidad !== "") {
-                     finalPautaHTML += `<em>No se han calculado los detalles para la modalidad "${document.getElementById('modalidad').options[document.getElementById('modalidad').selectedIndex].text}". Por favor, haga clic en el botón "Calcular" correspondiente.</em><br><br>`;
-                } else if (modalidad === "") {
-                     finalPautaHTML += `<em>No se ha seleccionado ninguna modalidad de sueroterapia.</em><br><br>`;
-                }
-
-
                 if (pautaFinalData.glucosaAporte && pautaFinalData.glucosaUnidad) {
                     finalPautaHTML += `<strong>Glucosa:</strong><br>`;
                     if (pautaFinalData.glucosaGR50 && parseFloat(pautaFinalData.glucosaGR50) > 0) {
-                        finalPautaHTML += `Añadir ${pautaFinalData.glucosaGR50} ml de GR50 a cada ${volumenBolsa.toFixed(0)} ml del suero pautado.<br>`;
+                        finalPautaHTML += `Añadir ${pautaFinalData.glucosaGR50} ml de GR50 a cada ${formatDecimal(volumenBolsa, 0)} ml del suero pautado.<br>`;
                     } else if (pautaFinalData.glucosaMensajeAdicional && pautaFinalData.glucosaMensajeAdicional !== 'Calculando aportes con glucosa base al 5%.' && pautaFinalData.glucosaMensajeAdicional !== 'Calculando aportes con glucosa base al 5%. No se añade GR50 adicional.') {
                          finalPautaHTML += `${pautaFinalData.glucosaMensajeAdicional}<br>`;
                     }
@@ -1880,12 +2032,11 @@
                      finalPautaHTML += `<strong>Glucosa:</strong><br>${pautaFinalData.glucosaMensajeAdicional}<br><br>`;
                 }
 
-
                 const potasioTab = document.getElementById('potasio-tab');
                 if (!potasioTab.classList.contains('disabled') && pautaFinalData.potasioDecision) {
                     finalPautaHTML += `<strong>Potasio:</strong><br>`;
                     if (parseFloat(pautaFinalData.potasioVolumenToAdd) > 0) {
-                        finalPautaHTML += `Añadir ${pautaFinalData.potasioVolumenToAdd} ml de ${pautaFinalData.potasioForma} a cada ${volumenBolsa.toFixed(0)} ml del suero pautado.<br>`;
+                        finalPautaHTML += `Añadir ${pautaFinalData.potasioVolumenToAdd} ml de ${pautaFinalData.potasioForma} a cada ${formatDecimal(volumenBolsa, 0)} ml del suero pautado.<br>`;
                     } else if (pautaFinalData.potasioDecision === 'none' && (pautaFinalData.sueroBaseTienePotasio === 'false' || !pautaFinalData.sueroBaseTienePotasio)) {
                          finalPautaHTML += "Sin añadir potasio al suero.<br>";
                     } else if (pautaFinalData.potasioMensaje) { 
@@ -1893,7 +2044,6 @@
                     } else if (pautaFinalData.potasioDecision !== 'none' && parseFloat(pautaFinalData.potasioVolumenToAdd) === 0) {
                          finalPautaHTML += `No se necesita añadir potasio adicional.<br>`;
                     }
-
 
                     if (pautaFinalData.potasioConcentracionDeseada) {
                         finalPautaHTML += `Concentración de potasio: ${pautaFinalData.potasioConcentracionDeseada} mEq/L<br>`;
@@ -1905,19 +2055,17 @@
                      finalPautaHTML += "<br>";
                 }
 
-
                 const sodioTab = document.getElementById('sodio-tab');
                 if (!sodioTab.classList.contains('disabled')) {
                     if (pautaFinalData.sodioVolumenAdd !== undefined) {
                         finalPautaHTML += `<strong>Sodio:</strong><br>`; 
-
 
                         if (pautaFinalData.sodioNota && pautaFinalData.sodioNota !== '') {
                             finalPautaHTML += `${pautaFinalData.sodioNota}<br>`;
                         } else if (pautaFinalData.sodioVolumenAdd === 'Error') {
                              finalPautaHTML += `Error al calcular el sodio: Concentración deseada inalcanzable.<br>`;
                         } else if (parseFloat(pautaFinalData.sodioVolumenAdd) > 0) {
-                            finalPautaHTML += `Añadir ${pautaFinalData.sodioVolumenAdd} ml de Suero Salino al 20% a cada ${volumenBolsa.toFixed(0)} ml del suero base.<br>`;
+                            finalPautaHTML += `Añadir ${pautaFinalData.sodioVolumenAdd} ml de Suero Salino al 20% a cada ${formatDecimal(volumenBolsa, 0)} ml del suero base.<br>`;
                         } else {
                              finalPautaHTML += `Se utilizará el suero base sin añadir Suero Salino al 20%.<br>`;
                         }
@@ -1928,54 +2076,128 @@
                     }
                 }
 
-
                 if (pautaFinalData.acidosisVolumenNaHCO3 && pautaFinalData.acidosisDistribucionMsg) {
-                     finalPautaHTML += `<strong>Corrección de Acidosis:</strong><br>`;
+                     finalPautaHTML += `<div id="acidosis-pauta-final"><strong>Corrección de Acidosis:</strong><br>`;
                      if (pautaFinalData.acidosisDeficitToReplace && pautaFinalData.acidosisFractionText) {
                          finalPautaHTML += `Déficit a reponer (${pautaFinalData.acidosisFractionText}): ${pautaFinalData.acidosisDeficitToReplace} mEq.<br>`;
                      }
-                     finalPautaHTML += `${pautaFinalData.acidosisDistribucionMsg}<br><br>`;
+                     finalPautaHTML += `${pautaFinalData.acidosisDistribucionMsg}<br><br></div>`;
                 }
 
-
-                let noCalculationsMade = true;
-                if (modalityCalculated || pautaFinalData.glucosaAporte || (pautaFinalData.potasioDecision && !potasioTab.classList.contains('disabled')) || (pautaFinalData.sodioVolumenAdd !== undefined && !sodioTab.classList.contains('disabled')) || (pautaFinalData.acidosisVolumenNaHCO3 && pautaFinalData.acidosisDistribucionMsg !== "No se requiere corrección de acidosis o el déficit a reponer es cero.") ) {
-                    noCalculationsMade = false;
-                }
-                 if (modalidad === "" && !pautaFinalData.glucosaAporte && !pautaFinalData.potasioDecision && pautaFinalData.sodioVolumenAdd === undefined && !pautaFinalData.acidosisVolumenNaHCO3) {
-                    noCalculationsMade = true;
-                }
-
-
-                if (noCalculationsMade) {
-                     finalPautaHTML = '<strong>PAUTA FINAL DE SUEROTERAPIA:</strong><br><br><em>No se han seleccionado/calculado pautas de sueroterapia, electrolitos o correcciones.</em>';
-                     if(pautaFinalNotaDiv) pautaFinalNotaDiv.style.display = 'none';
+                if (finalPautaHTML.trim() === '') {
+                    pautaFinalDiv.classList.remove('show');
+                    copyContainer.style.display = 'none';
                 } else {
-                    if(pautaFinalNotaDiv) {
-                        pautaFinalNotaDiv.innerHTML = 'NOTA: Esta pauta se puede copiar en el programa de prescripción 💪🏻';
-                        pautaFinalNotaDiv.style.display = 'block';
-                    }
+                    pautaFinalDiv.innerHTML = finalPautaHTML;
+                    pautaFinalDiv.classList.add('show');
+                    copyContainer.style.display = 'block';
                 }
-
-
-                pautaFinalDiv.innerHTML = finalPautaHTML;
-                pautaFinalDiv.style.display = 'block';
             } catch (error) {
-                console.error("Error in generarPautaFinal:", error);
+                console.error("Error en updatePautaFinal:", error);
                 const pautaFinalDiv = document.getElementById('pauta-final');
                 pautaFinalDiv.innerHTML = `<strong style="color: red;">Error al generar la pauta final: ${error.message}. Consulte la consola.</strong>`;
-                pautaFinalDiv.style.display = 'block';
-                 const pautaFinalNotaDiv = document.getElementById('pauta-final-nota');
-                 if(pautaFinalNotaDiv) pautaFinalNotaDiv.style.display = 'none';
+                pautaFinalDiv.classList.add('show');
+                 const copyContainer = document.getElementById('pauta-final-copy-container');
+                 if(copyContainer) copyContainer.style.display = 'none';
             }
         }
 
+        function copyPautaToClipboard() {
+            const pautaFinalData = document.getElementById('pauta-final').dataset;
+            const modalidad = document.getElementById('modalidad').value;
+            const volumenBolsa = getSelectedVolumeBolsa();
+
+            let textToCopy = "";
+            let acidosisPresent = false;
+
+            if (modalidad === 'basales' && pautaFinalData.ritmoBasal) {
+                const fraccionDesc = pautaFinalData.fraccionBasalDesc || "Necesidades basales completas";
+                textToCopy += `+Necesidades Basales (${fraccionDesc})\n`;
+                textToCopy += `-Volumen total en 24h: ${pautaFinalData.volumenBasal} ml\n`;
+                textToCopy += `-Ritmo de infusión: ${pautaFinalData.ritmoBasal} ml/h\n\n`;
+            } else if (modalidad === 'rapida' && pautaFinalData.ritmoRapida) {
+                const tiempoDesc = pautaFinalData.tiempoRehidratacionRapidaDesc || "2 horas";
+                textToCopy += `+Rehidratación Rápida\n`;
+                textToCopy += `-Volumen total a infundir en ${tiempoDesc}: ${pautaFinalData.volumenRapida} ml\n`;
+                textToCopy += `-Ritmo de infusión: ${pautaFinalData.ritmoRapida} ml/h\n\n`;
+            } else if (modalidad === 'clasica' && pautaFinalData.ritmoClasica) {
+                textToCopy += `+Rehidratación Clásica\n`;
+                textToCopy += `-Volumen total a reponer en 24h: ${pautaFinalData.volumenClasica} ml\n`;
+                textToCopy += `-Ritmo de infusión en 24h: ${pautaFinalData.ritmoClasica} ml/h\n\n`;
+            }
+
+            if (pautaFinalData.glucosaAporte && pautaFinalData.glucosaUnidad) {
+                textToCopy += `+Glucosa:\n`;
+                 if (pautaFinalData.glucosaGR50 && parseFloat(pautaFinalData.glucosaGR50) > 0) {
+                    textToCopy += `-Añadir ${pautaFinalData.glucosaGR50} ml de GR50 a cada ${formatDecimal(volumenBolsa, 0)} ml del suero pautado.\n`;
+                }
+                if (pautaFinalData.glucosaConcentracionDeseada) {
+                    textToCopy += `-Concentración de glucosa: ${pautaFinalData.glucosaConcentracionDeseada} %\n`;
+                }
+                textToCopy += `-Aportes de Glucosa: ${pautaFinalData.glucosaAporte} ${pautaFinalData.glucosaUnidad}\n\n`;
+            }
+
+            const potasioTab = document.getElementById('potasio-tab');
+            if (!potasioTab.classList.contains('disabled') && pautaFinalData.potasioDecision) {
+                 textToCopy += `+Potasio:\n`;
+                 if (parseFloat(pautaFinalData.potasioVolumenToAdd) > 0) {
+                    textToCopy += `-Añadir ${pautaFinalData.potasioVolumenToAdd} ml de ${pautaFinalData.potasioForma} a cada ${formatDecimal(volumenBolsa, 0)} ml del suero pautado.\n`;
+                }
+                 if (pautaFinalData.potasioConcentracionDeseada) {
+                    textToCopy += `-Concentración de potasio: ${pautaFinalData.potasioConcentracionDeseada} mEq/L\n`;
+                }
+                if (pautaFinalData.potasioAporte_mEq_kg_h) {
+                    textToCopy += `-Aporte de potasio: ${pautaFinalData.potasioAporte_mEq_kg_h} mEq/kg/h\n`;
+                }
+                textToCopy += `\n`;
+            }
+            
+            const sodioTab = document.getElementById('sodio-tab');
+            if (!sodioTab.classList.contains('disabled') && pautaFinalData.sodioVolumenAdd !== undefined) {
+                 textToCopy += `+Sodio:\n`;
+                 if (parseFloat(pautaFinalData.sodioVolumenAdd) > 0) {
+                     textToCopy += `-Añadir ${pautaFinalData.sodioVolumenAdd} ml de Suero Salino al 20% a cada ${formatDecimal(volumenBolsa, 0)} ml del suero base.\n`;
+                 }
+                 if (pautaFinalData.sodioConcentracionDeseada) {
+                    textToCopy += `-Concentración de sodio: ${pautaFinalData.sodioConcentracionDeseada} mEq/L\n`;
+                 }
+                 textToCopy += `\n`;
+            }
+
+            if (pautaFinalData.acidosisDeficitToReplace && parseFloat(pautaFinalData.acidosisDeficitToReplace) > 0) {
+                acidosisPresent = true;
+            }
+
+            const textArea = document.createElement("textarea");
+            textArea.value = textToCopy.trim();
+            textArea.style.position = 'fixed';
+            textArea.style.top = '-9999px';
+            textArea.style.left = '-9999px';
+            document.body.appendChild(textArea);
+            textArea.select();
+            textArea.focus();
+            try {
+                document.execCommand('copy');
+                const toast = document.getElementById('copy-toast');
+                if (acidosisPresent) {
+                    toast.textContent = "Pauta final copiada salvo el apartado acidosis, elija como reponer dicho déficit.";
+                } else {
+                    toast.textContent = "Pauta copiada al portapapeles.";
+                }
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            } catch (err) {
+                console.error('Error al copiar la pauta: ', err);
+            }
+            document.body.removeChild(textArea);
+        }
 
         function handleSueroBasePotasioChange() {
             const sueroBaseTienePotasio = document.querySelector('input[name="sueroBaseConPotasio"]:checked').value;
             const sinAnadirRadio = document.querySelector('input[name="concentracionPotasio"][value="none"]');
             const basalesRadio = document.querySelector('input[name="concentracionPotasio"][value="20"]'); 
-
 
             if (sueroBaseTienePotasio === 'true') { 
                 sinAnadirRadio.disabled = true; 
@@ -1989,13 +2211,11 @@
             updateLabelStyles('sueroBaseConPotasio');
         }
 
-
-        function calcularGorelick() {
-            const items = document.querySelectorAll('#gorelick-items-container input[type="checkbox"]:checked');
+        function calcularGorelickRapida() {
+            const items = document.querySelectorAll('#gorelick-items-container-rapida input[type="checkbox"]:checked');
             const score = items.length;
-            const resultadoDiv = document.getElementById('resultado-gorelick');
-            let resultadoTexto = `Puntuación: ${score}. `;
-
+            const resultadoDiv = document.getElementById('resultado-gorelick-rapida');
+            let resultadoTexto = `Puntuación Gorelick: ${score}. `;
 
             if (score < 3) {
                 resultadoTexto += "Deshidratación leve (<5%)";
@@ -2005,28 +2225,107 @@
                 resultadoTexto += "Deshidratación grave (>9%)";
             }
             resultadoDiv.innerHTML = resultadoTexto;
-            resultadoDiv.style.display = 'block';
+            resultadoDiv.classList.add('show');
+        }
+        
+        function calcularGorelickClasica() {
+            const items = document.querySelectorAll('#gorelick-items-container-clasica input[type="checkbox"]:checked');
+            const score = items.length;
+            const resultadoDiv = document.getElementById('resultado-gorelick-clasica'); 
+            let resultadoTexto = `Puntuación Gorelick: ${score}. `;
+
+            if (score < 3) {
+                resultadoTexto += "Deshidratación leve (<5%)";
+            } else if (score >= 3 && score <= 5) {
+                resultadoTexto += "Deshidratación moderada (5-9%)";
+            } else { 
+                resultadoTexto += "Deshidratación grave (>9%)";
+            }
+            resultadoDiv.innerHTML = resultadoTexto;
+            resultadoDiv.classList.add('show');
         }
 
+        function toggleDeficitCalculationMethod(modality) {
+            if (modality === 'clasica') {
+                const isPesoCuantificado = document.querySelector('input[name="pesoCuantificadoClasica"]:checked').value === 'si';
+                const perdidaPesoSection = document.getElementById('perdida-peso-section-clasica');
+                const valoracionClinicaSection = document.getElementById('valoracion-clinica-section-clasica');
+
+                if (isPesoCuantificado) {
+                    perdidaPesoSection.style.display = 'block';
+                    valoracionClinicaSection.style.display = 'none';
+                } else {
+                    perdidaPesoSection.style.display = 'none';
+                    valoracionClinicaSection.style.display = 'block';
+                }
+            } else if (modality === 'rapida') {
+                const isPesoCuantificado = document.querySelector('input[name="pesoCuantificado"]:checked').value === 'si';
+                const perdidaPesoSection = document.getElementById('perdida-peso-section');
+                const valoracionClinicaSection = document.getElementById('valoracion-clinica-section');
+                
+                if (isPesoCuantificado) {
+                    perdidaPesoSection.style.display = 'block';
+                    valoracionClinicaSection.style.display = 'none';
+                } else {
+                    perdidaPesoSection.style.display = 'none';
+                    valoracionClinicaSection.style.display = 'block';
+                }
+            }
+        }
+        
+        function calcularDeficitPorPesoPerdido() {
+            const pesoPerdido = parseFloat(document.getElementById('pesoPerdido').value);
+            const resultadoDiv = document.getElementById('resultado-deficit-rapida');
+             if (isNaN(pesoPerdido) || pesoPerdido <= 0) {
+                 resultadoDiv.innerHTML = '<strong style="color: red;">Por favor, ingrese un peso perdido válido.</strong>';
+                resultadoDiv.classList.add('show');
+                return;
+             }
+             const deficit = pesoPerdido * 1000;
+             resultadoDiv.innerHTML = `Déficit de líquidos calculado: ${formatDecimal(deficit, 0)} ml`;
+             resultadoDiv.dataset.deficitCalculado = deficit;
+             resultadoDiv.classList.add('show');
+        }
+        
+        function calcularDeficitPorPorcentaje() {
+            const peso = parseFloat(document.getElementById('peso').value);
+            const porcentaje = parseFloat(document.getElementById('porcentajeDeshidratacionRapida').value);
+             const resultadoDiv = document.getElementById('resultado-deficit-rapida');
+
+            if (isNaN(peso) || peso <= 0) {
+                resultadoDiv.innerHTML = '<strong style="color: red;">Por favor, ingrese el peso del paciente.</strong>';
+                resultadoDiv.classList.add('show');
+                return;
+            }
+             if (isNaN(porcentaje) || porcentaje <= 0) {
+                 resultadoDiv.innerHTML = '<strong style="color: red;">Por favor, ingrese un porcentaje de deshidratación válido.</strong>';
+                resultadoDiv.classList.add('show');
+                return;
+             }
+
+             const deficit = porcentaje * 10 * peso;
+             resultadoDiv.innerHTML = `Déficit de líquidos calculado: ${formatDecimal(deficit, 0)} ml`;
+             resultadoDiv.dataset.deficitCalculado = deficit;
+             resultadoDiv.classList.add('show');
+        }
 
         document.addEventListener('DOMContentLoaded', function () {
             openTab(null, 'glucosa'); 
             updateVolumeButtonStyles(); 
             
-            document.getElementById('peso').addEventListener('input', resetAllCalculationsAndPauta);
-            document.querySelectorAll('#volumenBolsaOptions input[name="volumenBolsa"]').forEach(radio => {
+            document.getElementById('peso').addEventListener('input', resetPautaFinal);
+            document.querySelectorAll('input[name="volumenBolsa"]').forEach(radio => {
                 radio.addEventListener('change', () => {
                     updateVolumeButtonStyles();
-                    resetAllCalculationsAndPauta();
+                    resetPautaFinal();
                 });
             });
             document.getElementById('modalidad').addEventListener('change', showModalidadOptions); 
 
-
             const radioCheckboxGroupsForStyleUpdate = [
                 'expansionVolumen', 'perdidasMantenidas', 'correccionDeficit', 
                 'sueroBaseConGlucosa', 'unidadGlucosa', 'sueroBaseConPotasio', 
-                'concentracionPotasio', 'correccionAcidosis'
+                'concentracionPotasio', 'correccionAcidosis', 'pesoCuantificado', 'pesoCuantificadoClasica'
             ];
             radioCheckboxGroupsForStyleUpdate.forEach(groupName => {
                 document.getElementsByName(groupName).forEach(input => {
@@ -2035,10 +2334,10 @@
                 updateLabelStyles(groupName); 
             });
             
-            document.querySelectorAll('#gorelick-items-container input[type="checkbox"]').forEach(checkbox => {
+             document.querySelectorAll('input[name^="gorelick"]').forEach(checkbox => {
                 checkbox.addEventListener('change', function() {
-                    const label = this.closest('label'); 
-                    if (label) { 
+                    const label = this.closest('label');
+                    if (label) {
                         if (this.checked) {
                             label.classList.add('selected-option-text');
                         } else {
@@ -2046,15 +2345,15 @@
                         }
                     }
                 });
-                const label = checkbox.closest('label');
-                if (label && checkbox.checked) {
-                    label.classList.add('selected-option-text');
-                } else if (label) {
-                    label.classList.remove('selected-option-text');
-                }
             });
 
-
+            document.querySelectorAll('input[name="pesoCuantificado"]').forEach(radio => {
+                 radio.addEventListener('change', () => toggleDeficitCalculationMethod('rapida'));
+            });
+             document.querySelectorAll('input[name="pesoCuantificadoClasica"]').forEach(radio => {
+                 radio.addEventListener('change', () => toggleDeficitCalculationMethod('clasica'));
+            });
+            
             const perdidasRadios = document.querySelectorAll('input[name="perdidasMantenidas"]');
             const perdidasValorInput = document.getElementById('perdidasMantenidasValor');
             perdidasRadios.forEach(radio => {
@@ -2069,12 +2368,10 @@
             });
             document.querySelector('input[name="perdidasMantenidas"][value="0"]').dispatchEvent(new Event('change'));
 
-
             document.querySelectorAll('input[name="sueroBaseConPotasio"]').forEach(radio => {
                 radio.addEventListener('change', handleSueroBasePotasioChange);
             });
             handleSueroBasePotasioChange(); 
-
 
             const expansionRadios = document.querySelectorAll('input[name="expansionVolumen"]');
             const volumenExpansionInput = document.getElementById('volumenExpansionMl');
@@ -2090,18 +2387,24 @@
             });
              document.querySelector('input[name="expansionVolumen"][value="no"]').dispatchEvent(new Event('change'));
 
-
             const toggleSuerosBtn = document.getElementById('toggleSuerosBtn');
             const tablaSuerosContainer = document.getElementById('tablaSuerosContainer'); 
             toggleSuerosBtn.addEventListener('click', function() {
-                if (tablaSuerosContainer.style.display === 'none') {
-                    tablaSuerosContainer.style.display = 'block';
+                tablaSuerosContainer.classList.toggle('show');
+                if (tablaSuerosContainer.classList.contains('show')) {
                     this.innerHTML = '<span class="emoji-icon">👁️</span>Ocultar Composición de Sueros';
                 } else {
-                    tablaSuerosContainer.style.display = 'none';
                     this.innerHTML = '<span class="emoji-icon">👁️</span>Mostrar Composición de Sueros';
                 }
             });
+
+            const copyBtn = document.getElementById('copyPautaBtn');
+            if(copyBtn) {
+                copyBtn.addEventListener('click', copyPautaToClipboard);
+            }
+            
+            toggleDeficitCalculationMethod('rapida');
+            toggleDeficitCalculationMethod('clasica');
         });
     </script>
 </body>
